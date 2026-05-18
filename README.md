@@ -1,43 +1,131 @@
-# Astro Starter Kit: Minimal
+# Teknisk Dokumentation: Hoest_Moen
 
-```sh
-npm create astro@latest -- --template minimal
-```
+## Om projektet:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+MMD - 2. semester - Tema 9
+I dette projekt, har vi valgt at fokusere på forsiden, programsiden og om Høst Møn.
+Vi skal hete data fra vores egen database lavet gennem SupaBase:
 
-## 🚀 Project Structure
+Løsningen er udviklet med Atro, css og JavaScript.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Navigationen af vores løsning:
 
-```text
-/
+- Forside
+- Menu med oversigt over program og tidligere programmer.
+- Vælg program.
+- Læs om programmet.
+- Menu med oversigt over om Høst, find rund & camping og galleri.
+- Læs om Høst
+- Footer med information med sociale medier og kontaktoplysninger.
+
+## Installation og opsætning:
+
+Klon os opsætning af reposiroty - Hvordan har vi gjordt det skridt for skridt.
+
+## Projekt mappe opsætning:
+
+```bash
+Hoest_Moen/
 ├── public/
+│   │   ├── favicon
+│   │   ├── img
+│   │   ├── video
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── compopnents/
+│   │   ├── Buttons1.astro
+│   │   ├── Buttons2.astro
+│   │   ├──Cards.astro
+│   │   ├──CardsForside.astro
+│   ├── layouts/
+│   │   ├── Layout.astro
+│   ├── pages/
+│   │   ├── index.astro
+│   │   ├── omhoest.astro
+│   │   ├── program.astro
+│   ├── styles/
+│   │   ├── Global.css
+├── .evn
+├── .gitignore
+└── README.md
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Filbeskrivelser
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### Alle Astro sider:
 
-Any static assets, like images, can be placed in the `public/` directory.
+- index.astro - Forsiden.
+- omhoest.astro - Information om festivallen.
+- Program.astro - Viser programmet for festivallen.
 
-## 🧞 Commands
+- cards.astro - Alle vores cards.
 
-All commands are run from the root of the project, from a terminal:
+- Layout.astro - Samling af komponenter (de elementer som gentages)
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### Alle CSS filer:
 
-## 👀 Want to learn more?
+- Global.css - Fælles design for alle sider.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Sådan fungerer koden:
+
+Projektet er bygget op med mappestruktur, der adskiller filer, komponenter, layouts og sider for at skabe et overskueligt og skalerbart setup.
+
+Projektet er bygget med komponentbaseret struktur:
+**Pages** fungerer som indgang for hver side.
+**Layout** bruges til at sikre ensartet design på hver side.
+**Components** genbruges på tværs af sider for at undgå gentagelse af kode.
+**CSS og JavaScript** håndterer styling og interaktivitet.
+
+Opbyging af projektet på denne måde, gør projektet nemt at vedligeholde, skalerbart Og overskueligt for videreudvikling.
+
+## Flow:
+
+For at undgå at vi arbejder i de samme filer, fordeler vi arbejdet således:
+Sara - Program
+Isabella - Om Høst
+Camille - Forsiden
+
+Vi sørger for at commit-beskeder en passende overskrift.
+
+## Hvordan koden fungerer:
+
+Vi gør brug af kommentarer til vores primæere elementer, som beskriver kodens formål og funktion, så vi kan holde et godt overblik.
+
+### Kommentarer
+
+Bla bla bla Hvorfor har vi brugt kommentare
+
+#### Eksempler på kommentarer:
+
+/_ Gem dropdown ved default _/
+/_ Hvert andet card vender billedet til højre _/
+
+## Navngivning:
+
+Vi har sørget for at navngive filer, classes, variabler, og funktioner så overskueligt og beskrivende som muligt.
+
+## Komponenter i denne opgave
+
+Cards, vores knapper, header og footer.
+
+## Branches og hvordan de bruges
+
+Branches er en central del, når man koder i grupper fremfor individuelt. Det muliggøre at alle gruppemedlemmer kan kode på det samme projekt, dog på hver deres branch, således at alles kodet del ikke overlapper hinanden. Når alle gruppermedlemmer er færdige med hver deres kodet del, så merger man sin branch (sin kodet del) ind i main, således at alles kodet dele samles til et endeligt site.
+
+#### Eksempler på branches:
+
+forside1
+forside-done
+variabler1
+sidste_rettelser-done
+
+## Udfordringer undervejs
+
+En udfording kunne være hvis et eller flere gruppemedlemmer glemmer at branche og arbejder i main, der opstår der probmelber.
+
+En anden udfording kunne også være en merge-konflikt - altså flere arbejder i den samme fil. Dog er det nemt at rette ved bare at kigge i GitHub, så fortæller den hvad problemet er.
+
+## Gruppemedlemmer
+
+- Sara
+- Isabella
+- Camille
