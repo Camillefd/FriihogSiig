@@ -1,0 +1,14 @@
+---
+// Henter eksamen-data der er sendt med fra index //
+const { eksamen } = Astro.props;
+---
+
+<article>
+    <h2>Sidst kigget på</h2>
+    <div class="kp">
+<img src={`/img/${eksamen.billede1}`} alt={eksamen.produktnavn}>
+<h3>{eksamen.produktnavn}</h3>
+<p>{eksamen.pris}</p>
+    </div>
+
+</article>

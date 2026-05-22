@@ -143,38 +143,38 @@ For at undgå at vi arbejder i de samme filer, fordeler vi arbejdet således:
 
 #### komponenter:
 
-footer.astro - Sara.
-menu.astro - Sara.
-seacarchbar.astro - Isabella.
-kurv.astro - Isabella.
-orderoversigt.astro - Isabella.
-leveringsoplysninger.astro - Isabella.
-Productcard.astro - Camille.
-sidstkiggetpaa.astro - Camille.
-filtersidebar.astro - Sara.
-breadCrum.astro - Sara.
-Buttons.astro - Camille.
+- footer.astro - Sara
+- menu.astro - Sara
+- seacarchbar.astro - Isabella
+- kurv.astro - Isabella
+- orderoversigt.astro - Isabella
+- leveringsoplysninger.astro - Isabella
+- Productcard.astro - Camille
+- sidstkiggetpaa.astro - Camille
+- filtersidebar.astro - Sara
+- breadCrum.astro - Sara
+- Buttons.astro - Camille
 
 #### Layout
 
-Layout.astro - Sara.
+- Layout.astro - Sara
 
 #### Pages
 
-index.astro - Camille.
-farvoritter.astro - Sara.
-kurv.astro - Isabella.
-omFS.astro - Isabella.
-productlist.astro - Camille / Sara.
-sinlgeproduct.astro - Camille.
+- index.astro - Camille
+- farvoritter.astro - Sara
+- kurv.astro - Isabella
+- omFS.astro - Isabella
+- productlist.astro - Camille / Sara
+- sinlgeproduct.astro - Camille
 
 #### styles
 
-global.css - Fælles.
+- global.css - Fælles
 
 #### Readme
 
-Readme.md - Camille.
+- Readme.md - Camille
 
 Vi sørger for at commit-beskeder en passende overskrift.
 
@@ -204,9 +204,9 @@ Branches er en central del, når man koder i grupper fremfor individuelt. Det mu
 
 #### Eksempler på branches:
 
-opstart_1/første.
-kurv-components/kurv+kompnenter1.
-oprettelse_af_supabase/supabase1.
+- opstart_1/første
+- kurv-components/kurv+kompnenter1
+- oprettelse_af_supabase/supabase1
 
 ## Udfordringer undervejs
 
