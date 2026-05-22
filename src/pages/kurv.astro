@@ -1,0 +1,94 @@
+---
+import Layout from "../layout/layout.astro";
+
+import KurvItems from "../components/kurvItems.astro";
+import Ordreoversigt from "../components/ordreoversigt.astro";
+import Leveringsoplysninger from "../components/leveringsoplysninger.astro";
+---
+
+<Layout title="Kurv">
+  <main class="cart-page">
+    <section class="search-section">
+      <input type="search" placeholder="Søg efter..." />
+      <button>Søg</button>
+    </section>
+
+    <section class="cart-layout">
+      <div class="kurv-item">
+      </div>
+
+      <aside class="cart-ordreoversigt">
+        <p>Subtotal (2 varer):</p>
+        <p>598,90 kr</p>
+        <hr />
+        <p>Levering:</p>
+        <p>35 kr</p>
+        <hr />
+        <strong>I alt: 634,90 kr</strong>
+      </aside>
+    </section>
+
+    <section class="delivery-info">
+      <h1>Leveringsoplysninger</h1>
+
+      <form>
+        <label>Fornavn *</label>
+        <input type="text" />
+
+        <label>Efternavn *</label>
+        <input type="text" />
+
+        <label>Adresselinje *</label>
+        <input type="text" />
+
+        <div class="form-row">
+          <div>
+            <label>By *</label>
+            <input type="text" />
+          </div>
+
+          <div>
+            <label>Postnummer *</label>
+            <input type="text" />
+          </div>
+        </div>
+
+        <label>Land *</label>
+        <input type="text" />
+
+        <label>Telefonnummer *</label>
+        <input type="text" />
+
+        <label>E-mail *</label>
+        <input type="email" />
+
+        <button type="submit">Fortsæt til leveringsmetode</button>
+      </form>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .cart-page {
+  padding: 4rem;
+}
+
+.top-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 6rem;
+  align-items: start;
+  border-top: 1px solid #b88f83;
+  padding-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .cart-page {
+    padding: 2rem;
+  }
+
+  .top-section {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
