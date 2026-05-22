@@ -1,4 +1,8 @@
 ---
+import Knap from '../components/buttons.astro'
+import "../styles/gobal.css"
+import Layout from '../layout/layout.astro';
+
 //Supabase-oplysninger hentes fra import.meta.env//
 const url = `${import.meta.env.SUPABASE_URL}/rest/v1/eksamen?select=*`;
 const apiKey = import.meta.env.SUPABASE_PUBLISHABLE_KEY;
@@ -15,3 +19,5 @@ const data = await fetch(url, options)
 .then((res) => res.json());
 //data kan bagefter bruges direkte i HTML-delen//
 ---
+
+<Knap tekst="Se produkter" href="/produkter" type="blaa" />
