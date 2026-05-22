@@ -28,34 +28,70 @@ body {
 }
 /************* Fonts ***************/
 h1 {
-  font-family: "Cormorant+Garamond", serif;
-  font-weight: 800;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 5rem;
   font-style: normal;
+  font-weight: lighter;
   color: var(--color-text);
 }
 h2 {
-  font-family: "Cormorant+Garamond", serif;
-  font-weight: 700;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3.75rem;
   font-style: normal;
+  font-weight: lighter;
   color: var(--color-text);
 }
 h3 {
-  font-family: "Cormorant+Garamond", serif;
-  font-weight: 600;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.5rem;
   font-style: normal;
+  font-weight: lighter;
   color: var(--color-text);
 }
 h4 {
-  font-family: "Cormorant+Garamond", serif;
-  font-weight: 500;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.87rem;
   font-style: normal;
+  font-weight: lighter;
   color: var(--color-text);
 }
 p {
   font-family: "Karla";
-  font-weight: 400;
+  font-size: 1.25rem;
   font-style: normal;
-  line-height: 30px;
+  font-weight: lighter;
+  line-height: 40px;
   max-width: 65ch;
   color: var(--color-text);
+}
+
+a {
+  font-family: "Cormorant Garamond", serif;
+  font-style: normal;
+  font-weight: lighter;
+  color: var(--color-text);
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.06rem;
+  }
+  h4 {
+    font-size: 0.93rem;
+  }
+  p {
+    font-size: 0.75rem;
+    line-height: 20px;
+  }
+
+  a {
+    font-size: 0.93rem;
+  }
 }
