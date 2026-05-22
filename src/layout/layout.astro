@@ -2,7 +2,6 @@
 const { footerClass } = Astro.props;
 import Footer from "../components/footer.astro";
 import Menu from "../components/menu.astro";
-import Header from "../components/menu.astro";
 import "../styles/gobal.css";
 ---
 
@@ -16,11 +15,11 @@ import "../styles/gobal.css";
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
-  <Menu />
-  <main>
-    <slot />
-  </main>
-  <Footer />
-
-
+  <body>
+    <Menu />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>
