@@ -1,4 +1,11 @@
 ---
+const { footerClass } = Astro.props;
+import Footer from "../components/footer.astro";
+import Header from "../components/menu.astro";
+import Global from "./gobal.css";
+import Layout from "../layout/layout.astro";
+
+
 //Supabase-oplysninger hentes fra import.meta.env//
 const url = `${import.meta.env.SUPABASE_URL}/rest/v1/eksamen?select=*`;
 const apiKey = import.meta.env.SUPABASE_PUBLISHABLE_KEY;
@@ -15,3 +22,5 @@ const data = await fetch(url, options)
 .then((res) => res.json());
 //data kan bagefter bruges direkte i HTML-delen//
 ---
+
+<Layout footerClass="footer-index" />
