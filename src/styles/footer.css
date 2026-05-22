@@ -1,8 +1,11 @@
 footer {
   display: grid;
-  grid-auto-flow: column;
+  grid-auto-flow: row;
   background-color: var(--color-green);
   align-items: start;
+  gap: 42px;
+  padding: 50px;
+  overflow: hidden;
 }
 
 footer *,
@@ -12,15 +15,31 @@ footer h3 {
   color: var(--color-background);
 }
 
+footer h2 {
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  font-size: 15px;
+}
+
 footer li {
-  font-family: "", sans-serif;
-  font-weight: 700;
   text-decoration: none;
   padding: 0.4rem 0.6rem;
+  font-family: Karla;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
 }
 
 footer a {
   text-decoration: none;
+  font-family: Karla;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 footer ul {
@@ -28,7 +47,62 @@ footer ul {
   flex-direction: column;
   justify-content: center;
   list-style: none;
-  padding: 50px;
-  padding-top: 2rem;
-  gap: 2rem;
+  gap: 10px;
+}
+
+.social-media {
+  justify-content: space-between;
+  flex-direction: row;
+  max-width: 265px;
+  justify-self: center;
+}
+
+.social-media img {
+  width: 50px;
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  max-width: 265px;
+  justify-self: center;
+  gap: 20px;
+}
+
+.payment-methods img {
+  width: 50px;
+}
+
+@media screen and (min-width: 700px) {
+  footer {
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 100px;
+  }
+
+  footer h2 {
+    font-size: 30px;
+  }
+
+  footer a,
+  footer li {
+    font-size: 20px;
+    text-align: left;
+  }
+
+  footer > *:not(.payment-methods) {
+    grid-row-start: 1;
+  }
+
+  .payment-methods {
+    grid-row-start: 2;
+    grid-column-start: 1;
+  }
+
+  .social-media {
+    flex-direction: column;
+    max-width: unset;
+    height: 100%;
+  }
 }
