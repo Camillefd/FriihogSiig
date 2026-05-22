@@ -2,6 +2,7 @@
 const { footerClass } = Astro.props;
 import Footer from "../components/footer.astro";
 import Header from "../components/menu.astro";
+import Global from "./gobal.css";
 ---
 
 <!doctype html>
@@ -17,6 +18,115 @@ import Header from "../components/menu.astro";
   <header></header>
   <main></main>
   <footer></footer>
+
+  <!-- Header styling -->
+  <style>
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+    }
+
+    header a {
+      font-family: "Cormorant+Garamond", serif;
+      font-weight: 700;
+      font-size: larger;
+      text-decoration: none;
+      color: var(--color-text);
+      padding: 0.4rem 0.6rem;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      margin: 2rem;
+      gap: 10rem;
+    }
+
+    .menu li a:hover {
+      display: inline-block;
+      scale: 1.2;
+      text-decoration: underline;
+    }
+
+    .menu li {
+      list-style: none;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    /* Gem dropdown ved default */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      left: 0;
+      background-color: var(--color-text);
+      min-width: 180px;
+      padding: 0.4rem 0.6rem;
+      z-index: 100;
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 0.4rem 0.6rem;
+      text-decoration: none;
+      color: var(--color-accent);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu li a:hover {
+      scale: 1.2;
+      text-decoration: underline;
+      background-color: var(--color-accent);
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown:hover > a {
+      background-color: var(--color-accent);
+    }
+
+    .dropdown > a {
+      padding: 0.4rem 0.6rem;
+      display: inline-block;
+    }
+  </style>
+  <!-- Footer styling -->
+  <style>
+    footer li {
+      font-family: "Syne", sans-serif;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--color-text);
+      padding: 0.4rem 0.6rem;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: var(--color-text);
+    }
+
+    footer ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 50px;
+      padding-top: 200px;
+      gap: 25rem;
+      background:;
+    }
+
+    .footer-index ul {
+      background:;
+    }
+  </style>
 
 
 </html>
