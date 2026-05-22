@@ -73,6 +73,7 @@ Friihogsiig/
 │   │   ├── leveringsoplysninger.astro
 │   │   ├── menu.astro
 │   │   ├── ordreoversigt.astro
+│   │   ├── plusbutton.astro
 │   │   ├── productCard.astro
 │   │   ├── searchBar.astro
 │   │   ├── sidstKiggetPaa.astro
@@ -86,7 +87,9 @@ Friihogsiig/
 │   │   ├── productlist.astro
 │   │   ├── singleproduct.astro
 │   ├── styles/
+│   │   ├── footer.css
 │   │   ├── global.css
+│   │   ├── header.css
 ├── .env
 ├── .gitignore
 └── README.md
@@ -106,13 +109,14 @@ Friihogsiig/
 ### Alle Astro komponenter:
 
 - breadcrumb.astro - Brødkrummestien, som bruges i productlist.astro og singleproduct.astro.
-- buttons.astro - Alle knapper, som bruges på hjemmesiden.
+- buttons.astro - Alle knapper med tekst, som bruges på hjemmesiden.
 - filterSidebar.astro - Filter, som bruges i productlist.astro.
 - footer.astro - Footeren, som bruges på alle sider.
 - kurvItems.astro - Viser de ting man har i kurven, som bruges på kurv.astro.
 - leveringsoplysninger.astro - En forms hvor brugeren skal udfylde sine oplysninger, som bruges på kurv.astro.
 - menu.astro - Navbaren, som bruges på alle sider.
 - ordreoversigt.astro - Viser en oversigt over hvor mange penge det bliver i alt, som bruges på kurv.astro.
+- plusbutton.astro - Knappen med plus og "Tilføj til kurv", som bruges på næsten alle sider.
 - productCard.astro - Hvordan hvert product er sat op, som bruges på productlist.astro.
 - searchBar.astro - Findes i navbaren, som bruges på alle sider.
 - sidstKiggetPaa.astro - Viser hvilket product man sidst har klikket ind på, som bruges på productlist.astro, singleproduct.astro og farvoritter.astro.
@@ -123,7 +127,9 @@ Friihogsiig/
 
 ### Alle CSS filer:
 
+- footer.css - Styling af footeren.
 - global.css - Fælles design for alle sider.
+- header.css - Stying af header.
 
 ## Sådan fungerer koden:
 
@@ -151,6 +157,7 @@ For at undgå at vi arbejder i de samme filer, fordeler vi arbejdet således:
 - leveringsoplysninger.astro - Isabella
 - Productcard.astro - Camille
 - sidstkiggetpaa.astro - Camille
+- plusbutton.astro - Camille
 - filtersidebar.astro - Sara
 - breadCrum.astro - Sara
 - Buttons.astro - Camille
@@ -170,7 +177,9 @@ For at undgå at vi arbejder i de samme filer, fordeler vi arbejdet således:
 
 #### styles
 
+- footer.css - Sara
 - global.css - Fælles
+- header.css - Sara
 
 #### Readme
 

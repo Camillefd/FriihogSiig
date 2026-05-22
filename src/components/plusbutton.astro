@@ -1,0 +1,75 @@
+---
+const { href } = Astro.props;
+---
+<div class="plus-container">
+    <a href={href} class="plus">
+        <span class="plus-tekst">Læg i kurv</span>
+        <img src="/img/ikoner/plus.svg" alt="plus" class="plus-ikon" />
+    </a>
+</div>
+
+<style>
+    .plus-container{
+    display: flex;
+    justify-content: flex-end; /*Placerer indholdet helt til højre*/
+}
+
+.plus {
+    background-color: var(--color-green);
+    color: var(--color-background);
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    overflow: hidden; /*Sørger for at tekst eller ikoner ikke stikker ud udenfor kanten under animationen*/
+    transition: width 0.3s ease; /* laver en blød animation, når bredden ændrer sig*/ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+    direction:ltr; /* hvilken retning teksten læses */
+}
+
+.plus:hover {
+    width: 200px;
+}
+
+.plus-ikon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0; /* Sørger for at elementet beholder sin størrelse */
+}
+
+.plus:hover .plus-ikon {
+    display: none;
+}
+
+.plus-tekst {
+    display: none;
+    white-space: nowrap; /*Sørger for at tekst ikke hopper ned på ny linje */
+}
+
+.plus:hover .plus-tekst {
+    display: block; /* Gør teksten synling når man hover over*/
+}
+
+@media (max-width: 768px) {
+.plus {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    gap: 10px;
+    margin: 10px;
+}
+
+.plus:hover {
+    width: 100px;
+}
+
+.plus-ikon {
+    width: 15px;
+    height: 15px;
+}
+}
+</style>

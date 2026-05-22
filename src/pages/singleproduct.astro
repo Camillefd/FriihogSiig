@@ -1,7 +1,8 @@
 ---
+import Layout from "../layout/layout.astro";
 import Knap from '../components/buttons.astro'
-import "../styles/gobal.css"
-import Layout from '../layout/layout.astro';
+import Plusknap from '../components/plusbutton.astro'
+import "../styles/global.css"
 
 //Supabase-oplysninger hentes fra import.meta.env//
 const url = `${import.meta.env.SUPABASE_URL}/rest/v1/eksamen?select=*`;
@@ -20,4 +21,11 @@ const data = await fetch(url, options)
 //data kan bagefter bruges direkte i HTML-delen//
 ---
 
-<Knap tekst="Se produkter" href="/produkter" type="blaa" />
+<Layout>
+    
+
+<Knap tekst="Se produkter" href="/produkter" type="orange" />
+
+<Plusknap/>
+
+</Layout>
