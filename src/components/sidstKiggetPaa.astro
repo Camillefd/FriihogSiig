@@ -1,14 +1,125 @@
 ---
 // Henter eksamen-data der er sendt med fra index //
-const { eksamen } = Astro.props;
+const { eksamen1, eksamen2 } = Astro.props;
+import Plusknap from './plusbutton.astro';
 ---
 
 <article>
+    <div class="baggrund">
     <h2>Sidst kigget på</h2>
+<div class="kpp">
     <div class="kp">
-<img src={`/img/${eksamen.billede1}`} alt={eksamen.produktnavn}>
-<h3>{eksamen.produktnavn}</h3>
-<p>{eksamen.pris}</p>
+        <div class="billeder">
+        <img class="farvorit" src="/img/ikoner/hjerte.svg" alt="farvorit"> 
+        <a href="/src/pages/singleproduct">
+<img src={`/img/${eksamen1.billede1}`} alt={eksamen1.produktnavn}>
+</a>
+</div>
+<h3>{eksamen1.produktnavn}</h3>
+<p>{eksamen1.pris} kr</p>
+   <div class="plusplacering">
+        <Plusknap href="/kurv" />
+    </div>
     </div>
 
+      <div class="kp">
+        <div class="billeder">
+        <img  class="farvorit" src="/img/ikoner/hjerte.svg" alt="farvorit"> 
+        <a href="/src/pages/singleproduct">
+<img src={`/img/${eksamen2.billede1}`} alt={eksamen2.produktnavn}>
+</a>
+</div>
+<h3>{eksamen2.produktnavn}</h3>
+<p>{eksamen2.pris} kr</p>
+   <div class="plusplacering">
+        <Plusknap href="/kurv" />
+    </div>
+    </div>
+    </div>
+    </div>
 </article>
+
+<style>
+    .kpp {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+.kp {
+    display: flex;
+    flex-direction: column;
+}
+
+.baggrund {
+    margin: 80px;
+}
+
+article {
+    background-color: var(--color-text);
+}
+
+h2 {
+color: var(--color-background);
+padding-bottom: 30px;
+padding-top: 50px;
+}
+
+h3,
+p {
+    color: var(--color-background);
+    padding-bottom: 20px;
+}
+
+.billeder{
+    position: relative;
+    width: 300px;
+    padding-bottom: 10px;
+}
+
+.farvorit {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+}
+
+.plusplacering {
+    position: absolute;
+    bottom: 55px;
+}
+
+@media (max-width: 768px) {
+    .kpp {
+    gap: 20px;
+}
+
+.baggrund {
+    margin: 30px;
+}
+
+h2 {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+h3,
+p {
+    padding-bottom: 10px;
+}
+
+.billeder{
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.plusplacering {
+    bottom: 15rem;
+}
+
+}
+
+</style>
+

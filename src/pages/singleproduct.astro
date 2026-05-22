@@ -2,10 +2,11 @@
 import Layout from "../layout/layout.astro";
 import Knap from '../components/buttons.astro'
 import Plusknap from '../components/plusbutton.astro'
+import Skp from '../components/sidstKiggetPaa.astro'
 import "../styles/global.css"
 
 //Supabase-oplysninger hentes fra import.meta.env//
-const url = `${import.meta.env.SUPABASE_URL}/rest/v1/eksamen?select=*`;
+const url = `${import.meta.env.SUPABASE_URL}/rest/v1/eksamen?select=*&order=id.asc` /*** Får produkterne i rækkefølge "order=id.asc" ***/
 const apiKey = import.meta.env.SUPABASE_PUBLISHABLE_KEY;
 
 const options = {
@@ -26,6 +27,7 @@ const data = await fetch(url, options)
 
 <Knap tekst="Se produkter" href="/produkter" type="orange" />
 
-<Plusknap/>
+
+<Skp eksamen1={data[1]} eksamen2={data[2]} />
 
 </Layout>
