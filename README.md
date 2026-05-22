@@ -1,50 +1,93 @@
-# Teknisk Dokumentation: Hoest_Moen
+# Teknisk Dokumentation: FriihogSiig
 
 ## Om projektet:
 
-MMD - 2. semester - Tema 9
-I dette projekt, har vi valgt at fokusere på forsiden, programsiden og om Høst Møn.
-Vi skal hete data fra vores egen database lavet gennem SupaBase:
+MMD - 2. semester - Eksamen
+Vi har udarbejdet en webshop manuelt og fokuseret på komponenter og brugen af dem på tværs af de forskellige pages.
+Vi henter data fra vores egen database lavet gennem Supabase.
 
-Løsningen er udviklet med Atro, css og JavaScript.
+Løsningen er udviklet med Astro og CSS.
 
-## Navigationen af vores løsning:
+## Eksempel på en brugerrejse gennem løsningen:
 
 - Forside
-- Menu med oversigt over program og tidligere programmer.
-- Vælg program.
-- Læs om programmet.
-- Menu med oversigt over om Høst, find rund & camping og galleri.
-- Læs om Høst
-- Footer med information med sociale medier og kontaktoplysninger.
+- Menu med oversigt over smykker, gaveidéer, Om Friihof + Siig, dine favoritter, kurv og et søgefelt.
+- Vælg smykker.
+- Vælg nyheder.
+- Kig de forskellige smykker igennem.
+- Filtre på højre side - vælg guld.
+- Vælg et guld smykke.
+- Læs om smykket.
+- Læg det i kurven.
+- Udfyld leveringsoplysninger.
 
-## Installation og opsætning:
+## Installation og opsætning af Astro:
 
-Klon os opsætning af reposiroty - Hvordan har vi gjordt det skridt for skridt.
+1. Opret et nyt repository på GitHub.
+
+2. Få repositoryet ned i VS Code:
+   - Tryk på "Clone Git Repository..."
+   - Indsæt linket fra dit repository
+   - Vælg en mappe på din computer at gemme projektet i
+
+3. Opret et nyt Astro-projekt i mappen via terminalen:
+
+```bash
+npm create astro@latest .
+```
+
+4. Installér afhængigheder:
+
+```bash
+npm install
+```
+
+5. Opret en `.env`-fil:
+
+```bash
+PUBLIC_SUPABASE_URL=din-supabase-url
+PUBLIC_SUPABASE_ANON_KEY=din-supabase-anon-nøgle
+```
+
+6. Start serveren:
+
+```bash
+npm run dev
+```
 
 ## Projekt mappe opsætning:
 
 ```bash
-Hoest_Moen/
+Friihogsiig/
 ├── public/
-│   │   ├── favicon
-│   │   ├── img
-│   │   ├── video
+│   │   ├── img/
+│   │   │  ├── ikoner
+│   │   ├── favicon.ico
 ├── src/
 │   ├── compopnents/
-│   │   ├── Buttons1.astro
-│   │   ├── Buttons2.astro
-│   │   ├──Cards.astro
-│   │   ├──CardsForside.astro
+│   │   ├── breadcrumb.astro
+│   │   ├── buttons.astro
+│   │   ├── filterSidebar.astro
+│   │   ├── footer.astro
+│   │   ├── kurvItems.astro
+│   │   ├── leveringsoplysninger.astro
+│   │   ├── menu.astro
+│   │   ├── ordreoversigt.astro
+│   │   ├── productCard.astro
+│   │   ├── searchBar.astro
+│   │   ├── sidstKiggetPaa.astro
 │   ├── layouts/
-│   │   ├── Layout.astro
+│   │   ├── layout.astro
 │   ├── pages/
+│   │   ├── farvoritter.astro
 │   │   ├── index.astro
-│   │   ├── omhoest.astro
-│   │   ├── program.astro
+│   │   ├── kurv.astro
+│   │   ├── omFS.astro
+│   │   ├── productlist.astro
+│   │   ├── singleproduct.astro
 │   ├── styles/
-│   │   ├── Global.css
-├── .evn
+│   │   ├── global.css
+├── .env
 ├── .gitignore
 └── README.md
 ```
@@ -54,16 +97,33 @@ Hoest_Moen/
 ### Alle Astro sider:
 
 - index.astro - Forsiden.
-- omhoest.astro - Information om festivallen.
-- Program.astro - Viser programmet for festivallen.
+- farvoritter.astro - Alle produkter som er blevet gjort til farvorit af brugeren.
+- kurv.astro - Viser hvad brugeren har lagt i kurven.
+- omFS.astro - Information om Friihof + Siig.
+- productlist.astro - Listview med alle produkterne.
+- singleproduct.astro - Singleview med hvert enkelt produkt.
 
-- cards.astro - Alle vores cards.
+### Alle Astro komponenter:
 
-- Layout.astro - Samling af komponenter (de elementer som gentages)
+- breadcrumb.astro - Brødkrummestien, som bruges i productlist.astro og singleproduct.astro.
+- buttons.astro - Alle knapper, som bruges på hjemmesiden.
+- filterSidebar.astro - Filter, som bruges i productlist.astro.
+- footer.astro - Footeren, som bruges på alle sider.
+- kurvItems.astro - Viser de ting man har i kurven, som bruges på kurv.astro.
+- leveringsoplysninger.astro - En forms hvor brugeren skal udfylde sine oplysninger, som bruges på kurv.astro.
+- menu.astro - Navbaren, som bruges på alle sider.
+- ordreoversigt.astro - Viser en oversigt over hvor mange penge det bliver i alt, som bruges på kurv.astro.
+- productCard.astro - Hvordan hvert product er sat op, som bruges på productlist.astro.
+- searchBar.astro - Findes i navbaren, som bruges på alle sider.
+- sidstKiggetPaa.astro - Viser hvilket product man sidst har klikket ind på, som bruges på productlist.astro, singleproduct.astro og farvoritter.astro.
+
+### Alle layouts:
+
+- layout.astro - Samling af komponenter (de elementer som gentages på siderne)
 
 ### Alle CSS filer:
 
-- Global.css - Fælles design for alle sider.
+- global.css - Fælles design for alle sider.
 
 ## Sådan fungerer koden:
 
@@ -73,31 +133,59 @@ Projektet er bygget med komponentbaseret struktur:
 **Pages** fungerer som indgang for hver side.
 **Layout** bruges til at sikre ensartet design på hver side.
 **Components** genbruges på tværs af sider for at undgå gentagelse af kode.
-**CSS og JavaScript** håndterer styling og interaktivitet.
+**CSS** håndterer styling.
 
-Opbyging af projektet på denne måde, gør projektet nemt at vedligeholde, skalerbart Og overskueligt for videreudvikling.
+Opbyging af projektet på denne måde, gør projektet nemt at vedligeholde, skalerbart og overskueligt for videreudvikling.
 
 ## Flow:
 
 For at undgå at vi arbejder i de samme filer, fordeler vi arbejdet således:
-Sara - Program
-Isabella - Om Høst
-Camille - Forsiden
+
+### komponenter:
+
+footer.astro - Sara
+menu.astro - Sara
+seacarchbar.astro - Isabella
+kurv.astro - Isabella
+orderoversigt.astro - Isabella
+leveringsoplysninger.astro - Isabella
+Productcard.astro - Camille
+sidstkiggetpaa.astro - Camille
+filtersidebar.astro - Sara
+breadCrum.astro - Sara
+Buttons.astro - Camille
+
+### Layout
+
+Layout.astro - Sara
+
+### Pages
+
+index.astro - Camille
+farvoritter.astro - Sara
+kurv.astro - Isabella
+omFS.astro - Isabella
+productlist.astro - Camille / Sara
+sinlgeproduct.astro - Camille
+
+### styles
+
+global.css - Fælles
+
+### Readme
+
+Readme.md - Camille
 
 Vi sørger for at commit-beskeder en passende overskrift.
 
-## Hvordan koden fungerer:
+## Kommentarer:
 
 Vi gør brug af kommentarer til vores primæere elementer, som beskriver kodens formål og funktion, så vi kan holde et godt overblik.
 
-### Kommentarer
-
-Bla bla bla Hvorfor har vi brugt kommentare
-
-#### Eksempler på kommentarer:
+### Eksempler på kommentarer:
 
 /_ Gem dropdown ved default _/
-/_ Hvert andet card vender billedet til højre _/
+/_ API-nøglen sendes med i headers _/
 
 ## Navngivning:
 
@@ -105,7 +193,7 @@ Vi har sørget for at navngive filer, classes, variabler, og funktioner så over
 
 ## Komponenter i denne opgave
 
-Cards, vores knapper, header og footer.
+Brødkrummesti, knapper, filter, footer, kurvitems, leveringsoplysninger (forms), menu/navbar, ordreoversigt, card med produkt på, søgebaren og "sidst kigget på"-card.
 
 ## Branches og hvordan de bruges
 
@@ -113,14 +201,13 @@ Branches er en central del, når man koder i grupper fremfor individuelt. Det mu
 
 #### Eksempler på branches:
 
-forside1
-forside-done
-variabler1
-sidste_rettelser-done
+opstart_1/første
+kurv-components/kurv+kompnenter1
+oprettelse_af_supabase/supabase1
 
 ## Udfordringer undervejs
 
-En udfording kunne være hvis et eller flere gruppemedlemmer glemmer at branche og arbejder i main, der opstår der probmelber.
+En udfording kunne være hvis et eller flere gruppemedlemmer glemmer at branche og arbejder i main, der opstår der problemer.
 
 En anden udfording kunne også være en merge-konflikt - altså flere arbejder i den samme fil. Dog er det nemt at rette ved bare at kigge i GitHub, så fortæller den hvad problemet er.
 
