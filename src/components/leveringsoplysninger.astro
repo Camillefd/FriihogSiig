@@ -1,0 +1,139 @@
+<section class="delivery-info">
+  <h1>Leveringsoplysninger</h1>
+
+  <form class="delivery-form">
+    <label>
+      Fornavn *
+      <input type="text" name="firstname" />
+    </label>
+
+    <label>
+      Efternavn *
+      <input type="text" name="lastname" />
+    </label>
+
+    <label>
+      Adresselinje *
+      <input type="text" name="address" />
+    </label>
+
+    <div class="form-row">
+      <label>
+        By *
+        <input type="text" name="city" />
+      </label>
+
+      <label>
+        Postnummer *
+        <input type="text" name="postalcode" />
+      </label>
+    </div>
+
+    <label>
+      Land *
+      <input type="text" name="country" />
+    </label>
+
+    <label>
+      Telefonnummer *
+      <input type="tel" name="phone" />
+    </label>
+
+    <label>
+      E-mail *
+      <input type="email" name="email" />
+    </label>
+
+    <label class="newsletter">
+      <input type="checkbox" name="newsletter" />
+      <span>
+        Ja, tilmeld mig Friihof+Siig-nyhedsbrevet. Jeg bekræfter, at jeg er over 16 år.
+        Jeg vil gerne modtage digital kommunikation (e-mail) fra Friihof+Siig om Friihof+Siig-produkter
+        og eksklusive tilbud.
+      </span>
+    </label>
+
+    <button type="submit">Fortsæt til leveringsmetode</button>
+  </form>
+</section>
+
+<style>
+  .delivery-info {
+    margin-top: 4rem;
+  }
+
+  .delivery-info h1 {
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 3rem;
+  }
+
+  .delivery-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .delivery-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+  }
+
+  .delivery-form input {
+    height: 38px;
+    border: none;
+    border-radius: 6px;
+    background-color: #d0b19d;
+    padding: 0 1rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .newsletter {
+    flex-direction: row !important;
+    align-items: flex-start;
+    gap: 1rem !important;
+    max-width: 850px;
+    line-height: 1.6;
+  }
+
+  .newsletter input {
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  button {
+    align-self: center;
+    margin-top: 3rem;
+    padding: 0.8rem 3rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #743b3b;
+    color: #f5e6c8;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .delivery-info h1 {
+      font-size: 2.2rem;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+</style>
