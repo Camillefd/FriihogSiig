@@ -141,40 +141,40 @@ Opbyging af projektet på denne måde, gør projektet nemt at vedligeholde, skal
 
 For at undgå at vi arbejder i de samme filer, fordeler vi arbejdet således:
 
-### komponenter:
+#### komponenter:
 
-footer.astro - Sara
-menu.astro - Sara
-seacarchbar.astro - Isabella
-kurv.astro - Isabella
-orderoversigt.astro - Isabella
-leveringsoplysninger.astro - Isabella
-Productcard.astro - Camille
-sidstkiggetpaa.astro - Camille
-filtersidebar.astro - Sara
-breadCrum.astro - Sara
-Buttons.astro - Camille
+footer.astro - Sara.
+menu.astro - Sara.
+seacarchbar.astro - Isabella.
+kurv.astro - Isabella.
+orderoversigt.astro - Isabella.
+leveringsoplysninger.astro - Isabella.
+Productcard.astro - Camille.
+sidstkiggetpaa.astro - Camille.
+filtersidebar.astro - Sara.
+breadCrum.astro - Sara.
+Buttons.astro - Camille.
 
-### Layout
+#### Layout
 
-Layout.astro - Sara
+Layout.astro - Sara.
 
-### Pages
+#### Pages
 
-index.astro - Camille
-farvoritter.astro - Sara
-kurv.astro - Isabella
-omFS.astro - Isabella
-productlist.astro - Camille / Sara
-sinlgeproduct.astro - Camille
+index.astro - Camille.
+farvoritter.astro - Sara.
+kurv.astro - Isabella.
+omFS.astro - Isabella.
+productlist.astro - Camille / Sara.
+sinlgeproduct.astro - Camille.
 
-### styles
+#### styles
 
-global.css - Fælles
+global.css - Fælles.
 
-### Readme
+#### Readme
 
-Readme.md - Camille
+Readme.md - Camille.
 
 Vi sørger for at commit-beskeder en passende overskrift.
 
@@ -184,8 +184,11 @@ Vi gør brug af kommentarer til vores primæere elementer, som beskriver kodens 
 
 ### Eksempler på kommentarer:
 
-/_ Gem dropdown ved default _/
-/_ API-nøglen sendes med i headers _/
+```bash
+/ Gem dropdown ved default /.
+
+/ API-nøglen sendes med i headers /.
+```
 
 ## Navngivning:
 
@@ -201,9 +204,9 @@ Branches er en central del, når man koder i grupper fremfor individuelt. Det mu
 
 #### Eksempler på branches:
 
-opstart_1/første
-kurv-components/kurv+kompnenter1
-oprettelse_af_supabase/supabase1
+opstart_1/første.
+kurv-components/kurv+kompnenter1.
+oprettelse_af_supabase/supabase1.
 
 ## Udfordringer undervejs
 
