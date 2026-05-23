@@ -1,6 +1,12 @@
 ---
+import Layout from "../layout/layout.astro";
+import Knap from '../components/buttons.astro'
+import Plusknap from '../components/plusbutton.astro'
+import Card from '../components/productCard.astro'
+import "../styles/global.css"
+
 //Supabase-oplysninger hentes fra import.meta.env//
-const url = `${import.meta.env.SUPABASE_URL}/rest/v1/eksamen?select=*`;
+const url = `${import.meta.env.SUPABASE_URL}/rest/v1/eksamen?select=*&order=id.asc&limit=12` /*** Får produkterne i rækkefølge "order=id.asc" og viser kun 12 produkter "limit=12"  ***/
 const apiKey = import.meta.env.SUPABASE_PUBLISHABLE_KEY;
 
 const options = {
@@ -15,3 +21,27 @@ const data = await fetch(url, options)
 .then((res) => res.json());
 //data kan bagefter bruges direkte i HTML-delen//
 ---
+<Layout>
+  <div class="grid">
+    {data.map((produkt) => (
+      <Card eksamen={produkt} />
+    ))}
+  </div>
+</Layout>
+
+<!----- Styling af gridet, så produkterne er ved siden af hindanen--->
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 70px;
+  }
+
+  @media (max-width: 768px) {
+      .grid {
+    gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+    padding: 40px;
+  }
+  }
+</style>
