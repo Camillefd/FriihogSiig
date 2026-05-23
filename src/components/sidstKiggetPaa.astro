@@ -8,33 +8,33 @@ import Plusknap from './plusbutton.astro';
     <div class="baggrund">
     <h2>Sidst kigget på</h2>
 <div class="kpp">
-    <div class="kp">
-        <div class="billeder">
+<div class="kp">
+    <div class="billeder">
         <img class="farvorit" src="/img/ikoner/hjerte.svg" alt="farvorit"> 
         <a href="/src/pages/singleproduct">
-<img src={`/img/${eksamen1.billede1}`} alt={eksamen1.produktnavn}>
-</a>
+            <img src={`/img/${eksamen1.billede1}`} alt={eksamen1.produktnavn}>
+        </a>
+        <div class="plusplacering">
+            <Plusknap href="/kurv" />
+        </div>
+    </div>
+    <h3>{eksamen1.produktnavn}</h3>
+    <p>{eksamen1.pris} kr</p>
 </div>
-<h3>{eksamen1.produktnavn}</h3>
-<p>{eksamen1.pris} kr</p>
-   <div class="plusplacering">
-        <Plusknap href="/kurv" />
-    </div>
-    </div>
 
-      <div class="kp">
-        <div class="billeder">
-        <img  class="farvorit" src="/img/ikoner/hjerte.svg" alt="farvorit"> 
+   <div class="kp">
+    <div class="billeder">
+        <img class="farvorit" src="/img/ikoner/hjerte.svg" alt="farvorit"> 
         <a href="/src/pages/singleproduct">
-<img src={`/img/${eksamen2.billede1}`} alt={eksamen2.produktnavn}>
-</a>
+            <img src={`/img/${eksamen2.billede1}`} alt={eksamen2.produktnavn}>
+        </a>
+        <div class="plusplacering">
+            <Plusknap href="/kurv" />
+        </div>
+    </div>
+    <h3>{eksamen2.produktnavn}</h3>
+    <p>{eksamen2.pris} kr</p>
 </div>
-<h3>{eksamen2.produktnavn}</h3>
-<p>{eksamen2.pris} kr</p>
-   <div class="plusplacering">
-        <Plusknap href="/kurv" />
-    </div>
-    </div>
     </div>
     </div>
 </article>
@@ -87,8 +87,9 @@ p {
 }
 
 .plusplacering {
-    position: absolute;
-    bottom: 55px;
+      position: absolute;
+    bottom: 20px;
+    right: 10px;
 }
 
 @media (max-width: 768px) {
@@ -116,9 +117,9 @@ p {
 }
 
 .plusplacering {
-    bottom: 15rem;
+   bottom: 10px;
+    right: 2px;
 }
-
 }
 
 </style>
