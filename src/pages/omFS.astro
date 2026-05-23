@@ -1,0 +1,389 @@
+---
+import Layout from "../layout/layout.astro";
+import Footer from "../components/footer.astro";
+---
+
+<Layout title="Om Friihof + Siig">
+
+  <main class="omfs-page">
+
+  <div class="hero-image">
+  <img src="/img/omFS.webp" alt="Friihof + Siig smykker" />
+</div>
+
+<section class="vores-historie">
+
+  <h2>Vores historie</h2>
+
+  <div class="historie-grid">
+
+    <div class="historie-tekst">
+      <p>
+        Personerne bag brandet er Lena og Hanne. De startede hjemme i stuen tilbage i 2013, hvor de ofte lavede smykker i deres fritid. Her fik Hanne idéen og sammen blev de enige om at gå ”All in”. Denne samtale førte til FRIIHOF+SIIG brandet, som vi kender det i dag. Med en umættelig kreativitet og evig trang til fornyelse har venindeparret bag FRIIHOF+SIIG siden 2013 skabt unikasmykker i et elegant og stilrent look.
+For FRIIHOF+SIIG er det væsentligt, at deres smykker ikke bliver til mængdevare, og derfor er hvert design helt særligt. I den kreative proces eksperimenterer FRIIHOF+SIIG med farvekombinationer og med et limiteret antal perler, får du et FRIIHOF+SIIG smykke, ikke alle kan eje.
+      </p>
+    </div>
+
+    <div class="historie-tekst">
+      <p>
+       Det særlige fokus på kvalitet og individuelle smykker er ført videre i selve produktionen, hvor FRIIHOF+SIIG på eget værksted håndtråder deres smukke designs med perler, de nøje har udvalgt fra rejser i hele verden. Med smykker fra FRIIHOF+SIIG får du nikkelfri og unikke smykker, som er sammensat af de bedste materialer til en overkommelig pris. Derfor er det også muligt at have flere FRIIHOF+SIIG smykker liggende, som du kan mixe og matche alt efter stil og humør. Med smykker fra dette danske designbrand går det enkle, stilrene design og farvetonerne igen, hvilket gør du med fordel kan mixe brugen af dine smykker, og herigennem skabe et personligt og unikt look.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="find-butik">
+  <h1>Find butik</h1>
+
+      <form class="store-search">
+        <input type="text" placeholder="Din lokation (postnummer)" />
+        <button>Søg</button>
+      </form>
+
+      <div class="store-list">
+        <article>
+          <h2>Thorshavn Færøerne</h2>
+          <p>C pløyensgøta 4</p>
+          <p>Thorshavn 100</p>
+        </article>
+
+        <article>
+          <h2>Thorshavn Færøerne</h2>
+          <p>C pløyensgøta 4</p>
+          <p>Thorshavn 100</p>
+        </article>
+
+        <article>
+          <h2>Thorshavn Færøerne</h2>
+          <p>C pløyensgøta 4</p>
+          <p>Thorshavn 100</p>
+        </article>
+      </div>
+
+      <button class="see-more">Se flere</button>
+    </section>
+
+<section class="reviews">
+  <h2>Hvad andre kunder mener</h2>
+
+  <div class="review-carousel">
+    <button class="carousel-btn prev">‹</button>
+
+    <div class="review-track">
+      <article class="review-slide">
+        <img src="/img/anmeldelse1.webp" alt="Trustpilot anmeldelse" />
+      </article>
+
+      <article class="review-slide active">
+        <img src="/img/anmeldelse2.webp" alt="Trustpilot anmeldelse" />
+      </article>
+
+      <article class="review-slide">
+        <img src="/img/anmeldelse3.webp" alt="Trustpilot anmeldelse" />
+      </article>
+
+        <article class="review-slide">
+        <img src="/img/anmeldelse1.webp" alt="Trustpilot anmeldelse" />
+      </article>
+
+      <article class="review-slide active">
+        <img src="/img/anmeldelse2.webp" alt="Trustpilot anmeldelse" />
+      </article>
+    </div>
+
+    <button class="carousel-btn next">›</button>
+  </div>
+
+ <div class="dots">
+  <span class="active"></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+</section>
+
+  </main>
+
+</Layout>
+
+<style>
+    .vores-historie {
+  background-color: #f8ead3;
+  padding: 6rem 5rem;
+  position: relative;
+}
+
+.vores-historie h2 {
+  position: absolute;
+  left: 3rem;
+  top: 6rem;
+
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+
+  font-size: 5rem;
+  font-weight: 300;
+  color: #7b3f3f;
+}
+
+.historie-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+
+  max-width: 1100px;
+  margin-left: 10rem;
+}
+
+.historie-tekst {
+  color: #7b3f3f;
+  line-height: 2.2;
+  font-size: 1.2rem;
+}
+
+.historie-tekst p {
+  margin-bottom: 2rem;
+}
+.omfs-page {
+  background-color: #1b0f4f;
+}
+
+.find-butik {
+  position: relative;
+  padding: 4rem;
+  color: #f8ead3;
+  min-height: 850px;
+}
+
+.find-butik h1 {
+  position: absolute;
+  right: 3rem;
+  top: 25rem;
+  writing-mode: vertical-rl;
+  font-size: 5rem;
+  font-weight: 300;
+  color: #f3e3c8;
+}
+
+.map-placeholder {
+  height: 480px;
+  background-color: #d8d8d8;
+  display: grid;
+  place-items: center;
+}
+
+.store-search {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.store-search input {
+  width: 300px;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #8d83a8;
+  color: white;
+}
+
+.store-search button,
+.see-more {
+  background-color: #f8ead3;
+  color: #1b0f4f;
+  border: none;
+  border-radius: 6px;
+  padding: 0.8rem 2rem;
+  font-family: inherit;
+font-size: large;
+}
+
+.store-search input::placeholder {
+  color: #1b0f4f;
+  font-family: garamond;
+  font-size: medium;
+}
+
+.store-list {
+  max-width: 700px;
+  margin-top: 3rem;
+}
+
+.store-list article {
+  border-bottom: 1px solid #f8ead3;
+  padding: 2rem 0;
+}
+
+.store-list h2 {
+  font-size: 1.7rem;
+  font-weight: 300;
+  color: #f3e3c8;
+}
+
+.store-list p {
+  margin: 0.2rem 0;
+  color: #f3e3c8;
+}
+
+.see-more {
+  margin-top: 2rem;
+}
+
+.reviews {
+  background-color: #f3e3c8;
+  padding: 7rem 0 8rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.reviews h2 {
+  color: #7b3f3f;
+  font-size: 4rem;
+  font-weight: 300;
+  margin-bottom: 4rem;
+}
+
+.review-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.review-track {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 900px;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+
+  padding: 2rem 300px;
+  min-height: 500px;
+
+  scroll-marker-group: after;
+}
+
+.review-track::-webkit-scrollbar {
+  display: none;
+}
+
+.review-slide {
+  flex: 0 0 460px;
+
+  scroll-snap-align: center;
+
+  opacity: 0.55;
+transform: scale(0.7) translateY(-160px);
+
+  transition:
+    transform 1.4s ease,
+    opacity 1.4s ease;
+
+  transform-origin: center center;
+
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.review-slide.active {
+     flex-basis: 460px;
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.review-slide img {
+  width: 100%;
+  display: block;
+
+  border-radius: 4px;
+
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.carousel-btn {
+  background: none;
+  border: none;
+
+  color: #7b3f3f;
+
+  font-size: 5rem;
+
+  cursor: pointer;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 2rem;
+}
+
+.dots span {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #7b3f3f;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.dots span.active {
+  width: 28px;
+  height: 28px;
+  background-color: #ff955f;
+  opacity: 1;
+}
+</style>
+
+<script is:inline>
+    if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
+window.addEventListener("load", () => {
+  window.scrollTo(0, 0);
+});
+  const track = document.querySelector(".review-track");
+  const slides = document.querySelectorAll(".review-slide");
+  const dots = document.querySelectorAll(".dots span");
+  const prevBtn = document.querySelector(".carousel-btn.prev");
+  const nextBtn = document.querySelector(".carousel-btn.next");
+
+  let currentIndex = 1;
+
+  function updateCarousel() {
+    slides.forEach((slide, index) => {
+      slide.classList.toggle("active", index === currentIndex);
+    });
+
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("active", index === currentIndex);
+    });
+
+    slides[currentIndex].scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest"
+    });
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateCarousel();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateCarousel();
+  });
+
+  updateCarousel();
+</script>
