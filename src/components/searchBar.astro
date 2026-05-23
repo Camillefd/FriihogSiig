@@ -1,0 +1,76 @@
+<section class="search-section" id="searchSection">
+  <form class="search-form">
+    <input type="search" placeholder="Søg efter..." />
+    <button type="submit">Søg</button>
+  </form>
+</section>
+
+<style>
+.search-section {
+  background-color: #f3e3c8;
+  padding: 0 5rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.search-section.open {
+  max-height: 180px;
+  padding: 2.5rem 5rem 3rem;
+}
+
+.search-form {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.search-form input {
+  flex: 1;
+  padding: 0.5rem 2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #cdb4a3;
+  color: #7b3f3f;
+  font-size: 2rem;
+  font-family: inherit;
+}
+
+.search-form input::placeholder {
+  color: #7b3f3f;
+}
+
+.search-form button {
+  padding: 0.5rem 3.5rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #7b3f3f;
+  color: #f8ead3;
+  font-size: 2rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.search-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.search-icon img {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+</style>
+
+<script is:inline>
+  const searchIcon = document.querySelector(".search-icon");
+  const searchSection = document.querySelector("#searchSection");
+
+  searchIcon?.addEventListener("click", () => {
+    searchSection?.classList.toggle("open");
+  });
+</script>

@@ -3,6 +3,7 @@ const { footerClass } = Astro.props;
 import Footer from "../components/footer.astro";
 import Menu from "../components/menu.astro";
 import Header from "../components/menu.astro";
+import SearchBar from "../components/searchBar.astro";
 import "../styles/global.css";
 ---
 
@@ -18,9 +19,11 @@ import "../styles/global.css";
   </head>
   <body>
     <Menu />
+    <SearchBar />
     <main>
       <slot />
     </main>
     <Footer />
   </body>
 </html>
+
