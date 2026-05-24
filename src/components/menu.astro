@@ -6,59 +6,73 @@ import Layout from "../layout/layout.astro";
 <header>
   <nav>
     <ul class="menu">
-      <li class="dropdown">
+      <li class="dropdown dropdown-1">
         <a href="/Smykker">Smykker</a>
-        <ul class="dropdown-menu">
-          <li><a href="">Nyheder</a></li>
-          <li><a href="">Bestsellers</a></li>
-          <li><a href="">Øreringe</a></li>
-          <li><a href="">Halskæder</a></li>
-          <li><a href="">Armbånd</a></li>
-          <li><a href="">Brocher</a></li>
+        <ul class="dropdown-menu-1 dropdown-menu">
+          <div class="dropdown-content">
+            <li><a href="">Nyheder </a></li>
+            <li><a href="">Bestsellers</a></li>
+            <li><a href="">Øreringe</a></li>
+            <li><a href="">Halskæder</a></li>
+            <li><a href="">Armbånd</a></li>
+            <li><a href="">Brocher</a></li>
+          </div>
+          <div class="dropdown-image">
+            <img src="/img/sb4.webp" alt="" />
+          </div>
         </ul>
       </li>
-      <li class="dropdown">
+      <li class="dropdown dropdown-2">
         <a href="/Smykker">Gaver</a>
-        <ul class="dropdown-menu">
-          <li><a href="">Pris:</a></li>
-          <li><a href="">Under 200kr</a></li>
-          <li><a href="">Under 300kr</a></li>
-          <li><a href="">Under 400kr</a></li>
-          <li><a href="">Over 400kr</a></li>
-          <li><a href="">Anledning:</a></li>
-          <li><a href="">Mors dag</a></li>
-          <li><a href="">Konfirmation</a></li>
-          <li><a href="">Student</a></li>
+        <ul class="dropdown-menu-2 dropdown-menu">
+          <div class="dropdown-content">
+            <div class="pris">
+              <li><h4>Pris:</h4></li>
+              <li><a href="">Under 200kr</a></li>
+              <li><a href="">Under 300kr</a></li>
+              <li><a href="">Under 400kr</a></li>
+              <li><a href="">Over 400kr</a></li>
+            </div>
+            <div class="anledning">
+              <li><h4>Anledning:</h4></li>
+              <li><a href="">Mors dag</a></li>
+              <li><a href="">Konfirmation</a></li>
+              <li><a href="">Student</a></li>
+            </div>
+          </div>
+          <div class="dropdown-image">
+            <img src="/img/mpm3.webp" alt="" />
+          </div>
         </ul>
       </li>
 
       <li><a href="//">Om F+S</a></li>
-      <li><a href="/"> <img src="/img/ikoner/logo-fs.svg" alt="logo" /></a></li>
+      <li class="menu-logo"><a href="/"> <img src="/img/ikoner/logo-fs.svg" alt="logo" /></a></li>
 
       <li><a href="">Dine Favoritter</a></li>
       <li><a href="">Kurv</a></li>
 
-      <div class="dropdown">
-<li>
-  <button class="search-icon" type="button">
-    <img src="/img/ikoner/soge.svg" alt="søgefunktion" />
-  </button>
-</li>
+      <div>
+        <li>
+          <button class="search-icon" type="button">
+            <img src="/img/ikoner/soge.svg" alt="søgefunktion" />
+          </button>
+        </li>
       </div>
     </ul>
   </nav>
 </header>
 
 <style>
-.search-icon {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
+  .search-icon {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
 
-.search-icon img {
-  width: 28px;
-  display: block;
-}
+  .search-icon img {
+    width: 28px;
+    display: block;
+  }
 </style>
