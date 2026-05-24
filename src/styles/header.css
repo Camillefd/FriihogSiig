@@ -1,5 +1,6 @@
 header {
   height: 155px;
+  position: relative;
 }
 
 nav {
@@ -8,37 +9,35 @@ nav {
   left: 0;
   width: 100%;
   z-index: 10;
-  overflow: hidden;
 }
 
 header a {
-  font-family: "Cormorant+Garamond", serif;
-  font-weight: 700;
-  font-size: larger;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 30px;
+  font-weight: normal;
   text-decoration: none;
   color: var(--color-text);
-  padding: 0.4rem 0.6rem;
 }
 
 .menu {
   display: flex;
-  justify-content: center;
   margin: 2rem;
-  gap: 10rem;
-}
-
-.menu li a:hover {
-  display: inline-block;
-  scale: 1.2;
-  text-decoration: underline;
+  justify-content: space-between;
 }
 
 .menu li {
   list-style: none;
 }
 
-.dropdown {
-  position: relative;
+.menu-logo {
+  width: 100px;
+  height: 100px;
+  z-index: 1000;
+}
+
+.menu-logo img {
+  width: 100%;
+  height: auto;
 }
 
 /* Gem dropdown ved default */
@@ -46,36 +45,86 @@ header a {
   display: none;
   position: absolute;
   left: 0;
-  background-color: var(--color-text);
-  min-width: 180px;
-  padding: 0.4rem 0.6rem;
+  right: 0;
+  background-color: var(--color-background);
+  padding: 50px;
   z-index: 100;
+}
+
+.dropdown-content {
+  gap: 20px;
+}
+
+.dropdown-image {
+  max-width: 447px;
+  aspect-ratio: 1 / 1;
+}
+
+.dropdown-image img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
 .dropdown-menu li a {
   display: block;
-  padding: 0.4rem 0.6rem;
   text-decoration: none;
-  color: var(--color-accent);
-  font-weight: 700;
+  color: var(--color-text);
   white-space: nowrap;
+  font-family: "Karla";
+  font-weight: normal;
+  font-size: 20px;
 }
 
 .dropdown-menu li a:hover {
-  scale: 1.2;
   text-decoration: underline;
-  background-color: var(--color-accent);
 }
 
-.dropdown:hover .dropdown-menu {
-  display: block;
+.dropdown-1:hover .dropdown-menu-1 .dropdown-content,
+.dropdown-2:hover .dropdown-menu-2 .dropdown-content {
+  display: flex;
+}
+
+.dropdown-1:hover .dropdown-menu-1,
+.dropdown-2:hover .dropdown-menu-2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown-1:hover > a,
+.dropdown-2:hover > a,
+.menu li a:hover {
+  font-size: 40px;
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.dropdown-menu-1 .dropdown-content {
+  flex-direction: column;
+}
+
+.dropdown-menu-2 .dropdown-content {
+  gap: 10rem;
+}
+
+.dropdown-menu-2 .pris,
+.dropdown-menu-2 .anledning {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dropdown-menu-2 h2 {
+  font-family: "Cormorant Garamond";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+nav:has(.dropdown:hover) {
+  background-color: var(--color-background);
 }
 
 .dropdown:hover > a {
-  background-color: var(--color-accent);
-}
-
-.dropdown > a {
-  padding: 0.4rem 0.6rem;
-  display: inline-block;
+  background-color: var(--color-background);
 }
