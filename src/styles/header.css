@@ -75,10 +75,6 @@ header a {
   font-size: 20px;
 }
 
-.dropdown-menu li a:hover {
-  text-decoration: underline;
-}
-
 .dropdown-1:hover .dropdown-menu-1 .dropdown-content,
 .dropdown-2:hover .dropdown-menu-2 .dropdown-content {
   display: flex;
