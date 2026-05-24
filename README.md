@@ -45,8 +45,8 @@ npm install
 5. Opret en `.env`-fil:
 
 ```bash
-PUBLIC_SUPABASE_URL=din-supabase-url
-PUBLIC_SUPABASE_ANON_KEY=din-supabase-anon-nøgle
+PUBLIC_SUPABASE_URL=vores-supabase-url
+PUBLIC_SUPABASE_ANON_KEY=vores-supabase-nøgle
 ```
 
 6. Start serveren:
@@ -85,7 +85,7 @@ Friihogsiig/
 │   │   ├── kurv.astro
 │   │   ├── omFS.astro
 │   │   ├── productlist.astro
-│   │   ├── singleproduct.astro
+│   │   ├── [id].astro
 │   ├── styles/
 │   │   ├── footer.css
 │   │   ├── global.css
@@ -104,7 +104,7 @@ Friihogsiig/
 - kurv.astro - Viser hvad brugeren har lagt i kurven.
 - omFS.astro - Information om Friihof + Siig.
 - productlist.astro - Listview med alle produkterne.
-- singleproduct.astro - Singleview med hvert enkelt produkt.
+- [id].astro - Singleview med hvert enkelt produkt.
 
 ### Alle Astro komponenter:
 
@@ -173,7 +173,7 @@ For at undgå at vi arbejder i de samme filer, fordeler vi arbejdet således:
 - kurv.astro - Isabella
 - omFS.astro - Isabella
 - productlist.astro - Camille / Sara
-- sinlgeproduct.astro - Camille
+- [id].astro - Camille
 
 #### styles
 
@@ -197,6 +197,8 @@ Vi gør brug af kommentarer til vores primæere elementer, som beskriver kodens 
 / Gem dropdown ved default /.
 
 / API-nøglen sendes med i headers /.
+
+<!-- Billeder til højre og venstre -->
 ```
 
 ## Navngivning:

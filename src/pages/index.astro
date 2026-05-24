@@ -6,7 +6,7 @@ import Card from '../components/productCard.astro'
 import "../styles/global.css"
 
 //Supabase-oplysninger hentes fra import.meta.env//
-const url = `${import.meta.env.SUPABASE_URL}/rest/v1/eksamen?select=*&order=id.asc` /*** Får produkterne i rækkefølge "order=id.asc" ***/
+const url = `${import.meta.env.SUPABASE_URL}/rest/v1/eksamen?select=*&id=in.(27,35,36,49)&order=id.asc` /*** Får produkterne i rækkefølge "order=id.asc" og vælger kun specifikke produkter "id=in.(27,35,36,49)"***/
 const apiKey = import.meta.env.SUPABASE_PUBLISHABLE_KEY;
 
 const options = {
@@ -22,7 +22,52 @@ const data = await fetch(url, options).then((res) => res.json());
 console.log(data); 
 ---
 <Layout>
-  {data.map((produkt) => (
-    <Card eksamen={produkt} />
-  ))}
+<img src="/img/forside.webp" alt="forsidebillede">
+
+<h2>Udforsk vores nyheder</h2>
+
+<Card eksamen={data[0]}/>
+<Card eksamen={data[1]}/>
+<Card eksamen={data[2]}/>
+<Card eksamen={data[3]}/>
+
+ <div class="prikker">
+  <span></span>
+  <span></span>
+   <span class="aktiv"></span>
+  <span></span>
+  <span></span>
+</div>
+
+<img src="/img/forfra.webp" alt="sof_forfra">
+<img src="/img/side.webp" alt="sof_siden">
+
+<img src="/img/camisof.webp" alt="Cami_Sof">
+<Plusknap/>
+<h2>Gaven til din elskede mor</h2>
+<p>Mor fortjener noget særligt — og vi har gjort det nemt for dig at finde det. Hos Friihof+Siig finder du smykker i alle prislejer, så der er den perfekte gave til enhver mor. Uanset om hun elsker det enkle og klassiske, det farverige og legende eller noget midt imellem, er der noget til hende her.
+Vores smykker er skabt til at bæres og elskes — hver dag og ved de særlige øjeblikke. En gave fra Friihof+Siig er ikke bare et smykke, det er en lille påmindelse om, at du har tænkt på hende. 
+Find din mors næste yndlingssmykke blandt vores udvalg, og giv hende en gave, hun kommer til at bære igen og igen.</p>
+<Knap tekst="Se flere skønne gaver her" href="" type="orange" />
+
+<h2>Shop efter kategori</h2>
+<img src="/img/bhg1.webp" alt="Brushed Hoops">
+<Knap tekst="Øreringe" href="" type="orange" />
+
+<img src="/img/pab1.webp" alt="Brunt Perlearmbånd">
+<Knap tekst="Armbånd" href="" type="orange" />
+
+<img src="/img/mpb1.webp" alt="Perlehalskæde">
+<Knap tekst="Halskæder" href="" type="orange" />
+
+<img src="/img/gb1.webp" alt="Guldsmed Broche">
+<Knap tekst="Brocher" href="" type="orange" />
+
+<h2>Følg med på instagram</h2>
+<h3><a href="https://www.instagram.com/friihofsiig/">@friihofsiig</a></h3>
+
+<img src="/img/insta1.webp" alt="Instagram1">
+<img src="/img/insta2.webp" alt="Instagram2">
+<img src="/img/insta3.webp" alt="Instagram3">
+
 </Layout>

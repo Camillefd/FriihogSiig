@@ -21,9 +21,10 @@ apikey: apiKey,
 const data = await fetch(url, options)
 .then((res) => res.json());
 //data kan bagefter bruges direkte i HTML-delen//
+console.log(data); 
 ---
 <Layout>
-    <img src="/img/eske.webp" alt="øreringe">
+    <img class="hero" src="/img/eske.webp" alt="øreringe">
     <div class="bk">
    <p>Brødkrummesti</p>
    </div>
@@ -31,6 +32,9 @@ const data = await fetch(url, options)
     <div class="filtre">
     <p> Filtre </p>
     </div>
+      
+         
+           
   <div class="grid">
     {data.map((produkt) => (
       <Card eksamen={produkt} />
@@ -43,7 +47,7 @@ const data = await fetch(url, options)
 <Knap tekst="Se mere..." href="" type="blaa" />
 </div>
 
-<Skp eksamen1={data[1]} eksamen2={data[2]} />
+<Skp eksamen1={data[1]} eksamen2={data[2]}
 
 </Layout>
 
@@ -57,7 +61,7 @@ const data = await fetch(url, options)
         padding-bottom: 0px;
   }
 
-  img {
+  .hero {
     position: relative;
     width: 100%;
     height: 38rem;
