@@ -65,9 +65,9 @@
 
 <style>
   .filter-box:has(.filter-header.active) {
-    background: #ede2cf;
+    background: var(--color-background);
     padding: 2rem;
-    border: 1px solid #8b5e5e;
+    border: 1px solid var(--color-text);
     max-width: 400px;
     font-family: serif;
   }
@@ -99,7 +99,7 @@
   }
 
   .filter-header h3 {
-    color: #2d2a6e;
+    color: var(--color-blue)
     font-size: 1.2rem;
   }
 
@@ -111,7 +111,7 @@
   }
 
   .price-range input {
-    background: #d8c3b1;
+    background: color-mix(in srgb, var(--color-text) 25%, transparent);
     border: none;
     padding: 1rem;
     width: 100%;
@@ -120,11 +120,11 @@
   }
 
   .accordion {
-    border-top: 1px solid #8b5e5e;
+    border-top: 1px solid var(--color-text);
   }
 
   .accordion:last-of-type {
-    border-bottom: 1px solid #8b5e5e;
+    border-bottom: 1px solid var(--color-text);
   }
 
   .accordion-header {
@@ -136,7 +136,7 @@
     justify-content: space-between;
     align-items: center;
     font-size: 1rem;
-    color: #6a3f3f;
+    color: var(--color-text);
     cursor: pointer;
   }
 
@@ -154,8 +154,8 @@
   .apply-btn {
     display: block;
     margin: 2rem auto 0;
-    background: #7a3f46;
-    color: white;
+    background: var(--color-text);
+    color: var(--color-background);
     border: none;
     padding: 1rem 3rem;
     border-radius: 8px;
@@ -166,7 +166,7 @@
   label {
     display: flex;
     gap: 0.5rem;
-    color: #6a3f3f;
+    color: var(--color-text);
   }
   @media screen and (max-width: 768px) {
     .filter-box:has(.filter-header.active) {
