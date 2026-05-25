@@ -1,0 +1,40 @@
+---
+const pathName = Astro.url.pathname;
+
+const { jewellery, id } = Astro.props;
+
+console.log("current path:", pathName);
+
+let isProductList = pathName === "/productlist";
+let isProductDetails = pathName.startsWith("/product-details");
+---
+
+{
+  isProductList && (
+    <div class="breadcrumb">
+      <a href="/">Forside</a>
+      <span class="separator">/</span>
+      <a href="/productlist">Smykker</a>
+      <span class="separator">/</span>
+      <a href="/productlist">Nyheder</a>
+    </div>
+  )
+}
+
+{
+  isProductDetails && (
+    <div class="breadcrumb">
+      <a href="/">Forside</a>
+      <span class="separator">/</span>
+      <a href="/productlist">Smykker</a>
+      <span class="separator">/</span>
+      <a href={`/product-details/${id}`}>{jewellery}</a>
+    </div>
+  )
+}
+
+<style>
+  .breadcrumb {
+    margin-bottom: 1rem;
+  }
+</style>

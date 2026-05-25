@@ -2,7 +2,6 @@
 // Henter eksamen-data der er sendt med fra index //
 const { eksamen, isHeartShown = true, showOenskeSkyen = false } = Astro.props;
 import Plusknap from "./plusbutton.astro";
-console.log(eksamen);
 ---
 
 <article>
@@ -51,7 +50,8 @@ console.log(eksamen);
   .productcard {
     display: flex;
     flex-direction: column;
-}
+    width: fit-content;
+  }
 
   h3,
   p {
@@ -83,6 +83,10 @@ console.log(eksamen);
     right: 10px;
   }
 
+  article {
+    width: fit-content;
+  }
+
   @media (max-width: 768px) {
     h3,
     p {
@@ -108,6 +112,11 @@ console.log(eksamen);
     .productcard {
       margin-bottom: 10px;
       padding-bottom: 0px;
+      width: fit-content;
+    }
+
+    article {
+      width: fit-content;
     }
   }
 </style>
