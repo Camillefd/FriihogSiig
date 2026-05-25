@@ -1,0 +1,111 @@
+---
+//@ts-nocheck
+export const prerender = false; // Siden bliver bygget når man trykker på den, frem for på forhold som Astro plejer.
+
+import Layout from "../../layout/layout.astro";
+import Knap from "../../components/buttons.astro";
+import Plusknap from "../../components/plusbutton.astro";
+import Skp from "../../components/sidstKiggetPaa.astro";
+import Card from "../../components/productCard.astro";
+import "../../styles/global.css";
+
+// Henter id fra URL'en
+const id = Astro.params.id;
+
+if (!id || !/^\d+$/.test(id)) {
+  return Astro.redirect("/404");
+}
+
+//Supabase-oplysninger hentes fra import.meta.env//
+const apiKey = import.meta.env.SUPABASE_PUBLISHABLE_KEY;
+
+const options = {
+  //API-nøglen sendes med i headers//
+  headers: {
+    apikey: apiKey,
+  },
+};
+
+//Koden kører i Astro frontmatter await fetch() erstatter getData()//
+const url = `${import.meta.env.SUPABASE_URL}/rest/v1/eksamen?id=eq.${id}&select=*`;
+const data = await fetch(url, options).then((res) => res.json());
+const produkt = data[0]; // Henter det første (og eneste) produkt fra arrayet
+
+// Henter 2 produkter til "Sidst kigget på"
+const skpUrl = `${import.meta.env.SUPABASE_URL}/rest/v1/eksamen?select=*&order=id.asc`;
+const skpData = await fetch(skpUrl, options).then((res) => res.json());
+
+// Henter 4 produkter til "Mix and match"
+const mmUrl = `${import.meta.env.SUPABASE_URL}/rest/v1/eksamen?select=*&order=id.asc&limit=4`;
+const mmData = await fetch(mmUrl, options).then((res) => res.json());
+---
+
+<Layout>
+  <p>Brødkrummesti</p>
+
+  <div class="singleproduct">
+    <!-- Billeder til højre og venstre -->
+    <div class="billeder-sektion">
+      <button class="pil venstre"><img src="/img/ikoner/pil-v.svg" alt="tidligere" /></button>
+
+      <img id="firstbillede" src={`/img/${produkt.billede1}`} alt={produkt.produktnavn} />
+
+      <button class="pil hoejre"><img src="/img/ikoner/pil-h.svg" alt="næste" /></button>
+
+      <!-- Billeder -->
+      <div class="thumbnails">
+        <img src={`/img/${produkt.billede1}`} alt="billede1" />
+        <img src={`/img/${produkt.billede2}`} alt="billede2" />
+        <img src={`/img/${produkt.billede3}`} alt="billede3" />
+        <img src={`/img/${produkt.billede4}`} alt="billede4" />
+      </div>
+    </div>
+
+    <!-- Info om produktet-->
+    <div class="info">
+      <h1>{produkt.produktnavn}</h1>
+      <p>{produkt.pris} kr</p>
+      <p>{produkt.k_beskrivelse}</p>
+      <p>Farve/Matriale:</p>
+      <Knap tekst={produkt.farve} href="" type="orange" />
+      <Knap tekst="Tilføj til kurv" href="" type="blaa" />
+      <div class="antal">
+        <button><img src="/img/ikoner/minus-b.svg" alt="blå minus" /></button>
+        <span><p>1</p></span>
+        <button><img src="/img/ikoner/plus-b.svg" alt="blå plus" /></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mix and match -->
+  <section class="mixmatch">
+    <h2>Mix and match</h2>
+    <div class="scrollcontainer">
+      {mmData.map((produkt) => <Card eksamen={produkt} />)}
+    </div>
+  </section>
+
+  <!-- Specifikationer -->
+  <section class="specifikationer">
+    <h2>Spesifikationer</h2>
+    <p>{produkt.l_beskrivelse}</p>
+  </section>
+</Layout>
+
+<img src="/img/udklip.webp" alt="udklip" />
+
+<!-- Materialer -->
+<section class="materialer">
+  <h2>Materialer</h2>
+  <p>{produkt.materiale}</p>
+</section>
+
+<!-- Størrelsesguide -->
+<section class="størrelsesguide">
+  <h2>Størrelsesguide</h2>
+  <p>Er du i tvivl om størrelsen? Bare rolig — til højre finder du vores størrelsesguide, som hjælper dig med at finde det rette mål. Har du stadig spørgsmål, er du altid velkommen til at række ud til os eller besøge en af vores forhandlere.</p>
+  <img src="/img/strg.webp" alt="størrelsesguide" />
+</section>
+
+<!-- Sidst kigget på -->
+<Skp eksamen1={skpData[1]} eksamen2={skpData[2]} />

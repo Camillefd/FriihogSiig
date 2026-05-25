@@ -86,10 +86,18 @@ header a {
   justify-content: space-between;
 }
 
+.menu li a {
+  display: inline-block;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+  transform-origin: center;
+}
+
 .dropdown-1:hover > a,
 .dropdown-2:hover > a,
 .menu li a:hover {
-  font-size: 40px;
+  transform: scale(1.2);
   font-style: italic;
   color: var(--color-accent);
 }
