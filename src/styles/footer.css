@@ -5,7 +5,6 @@ footer {
   align-items: start;
   gap: 42px;
   padding: 50px;
-  overflow: hidden;
 }
 
 footer *,
@@ -72,6 +71,16 @@ footer ul {
 
 .payment-methods img {
   width: 50px;
+}
+
+footer li,
+footer a {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+footer > * {
+  min-width: 0;
 }
 
 @media screen and (min-width: 700px) {
