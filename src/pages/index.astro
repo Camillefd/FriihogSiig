@@ -119,377 +119,374 @@ const data = await fetch(url, options).then((res) => res.json());
 
 <!-- CSS -->
 <style>
+ /* Toppen af siden */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-position: top;
+  object-fit: cover;
+  margin-top: -170px;
+  margin-bottom: 100px;
+}
+
+.overskrift {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Karusel */
+.karusel {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 40px;
+}
+
+.karusel-track {
+  display: flex;
+  gap: 40px;
+  overflow: hidden; /* Skjuler slides der er udenfor karuselen, viser ikke alle 4 på engang*/
+}
+
+.karusel-btn {
+  background: none;
+  border: none;
+  font-size: 4rem;
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+.karusel-slide {
+  opacity: 0.5; /* De inaktive slides bliver gennemsigtige */
+  transform: scale(0.85); /* De inaktive slides bliver mindre */
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease; /* Blød og smooth animation på størrelse og gennemsigtighed over 0.4 sekunder */
+}
+
+.karusel-slide.aktiv {
+  opacity: 1; /* Det aktive slide bliver synligt */
+  transform: scale(1); /* Det aktive slide bliver normal størrelse */
+}
+
+/* Prikker */
+.prikker {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px;
+  margin-bottom: 120px;
+}
+
+.prikker span {
+  /* "normal" prik */
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-text);
+  opacity: 1;
+}
+
+.scroll-mobil {
+  display: none;
+}
+
+/* Billeder af Sofie */
+.Sof {
+  display: flex;
+  position: relative;
+  background-color: var(--color-text);
+}
+
+.sof1 {
+  width: 50%;
+  object-fit: cover;
+  padding: 100px;
+}
+
+.sof2 {
+  width: 50%;
+  object-fit: cover;
+}
+
+.plusplacering {
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+}
+
+.plusplacering1 {
+  position: absolute;
+  bottom: -172rem;
+  right: 45rem;
+}
+
+/* Mors dag */
+.morsdag {
+  display: flex;
+  margin: 0;
+  margin-top: 100px;
+}
+
+.morsdag h2 {
+  margin: 30px;
+  margin-bottom: 2px;
+  padding: 0;
+}
+
+.morsdag p {
+  margin: 30px;
+  margin-bottom: 30px;
+  padding: 0;
+}
+
+.morsdag img {
+  object-fit: cover;
+  object-position: top;
+ width: 95%;
+  padding: 0;
+  position: relative;
+}
+
+.Knap1 {
+  margin-bottom: 50px;
+  margin-left: 10px;
+  margin-top: 90px;
+  padding: 0;
+}
+
+/* Kategori */
+.kategori {
+  background-color: var(--color-blue);
+  padding-bottom: 40px;
+  margin-top: 150px;
+}
+
+.kategori h2 {
+  color: var(--color-background);
+  text-align: center;
+  padding: 40px;
+}
+
+.scroll-mobil2 {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  gap: 30px;
+}
+
+.scroll-mobil2 div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.scroll-mobil2 div img {
+  width: 300px;
+  margin-bottom: -40px; /* Trækker billedet ned over knappen */
+  z-index: 1;
+}
+
+.scroll-mobil2 div :global(a) {
+  /* styler <a> tagget inde i en komponenten */
+  z-index: 2; /* Knappen kommer foran billedet */
+  position: relative;
+}
+
+/* Instagram */
+.insta h2 {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 20px;
+}
+
+.insta h3 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.insta-billeder {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px;
+  margin-bottom: 150px;
+}
+
+.insta img {
+  width: 30%;
+  object-fit: cover;
+}
+
+/* Mobil */
+@media (max-width: 768px) {
+
   /* Toppen af siden */
   .hero {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    object-position: top;
-    object-fit: cover;
-    margin-top: -170px;
+    margin-bottom: 60px;
+    margin-top: -82px;
+  }
+
+  /* Skjul karusel og prikker på mobil */
+  .karusel {
+    display: none;
+  }
+
+  .prikker {
+    display: none;
+  }
+
+  /* Vis scroll på mobil */
+  .scroll-mobil {
+    display: flex;
+    overflow-x: scroll;
+    gap: 20px;
+    padding: 20px;
     margin-bottom: 100px;
   }
 
-  .overskrift {
-    text-align: center;
-    margin-bottom: 30px;
+  .scroll-mobil::-webkit-scrollbar {
+    height: 5px; /* Højden på scrollbaren */
   }
 
-  /* Karusel */
-  .karusel {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 40px;
+  .scroll-mobil::-webkit-scrollbar-track {
+    background: #703b3c2d; /* Farven bag scrollbaren */
+    padding-left: 10px;
   }
 
-  .karusel-track {
-    display: flex;
-    gap: 40px;
-    overflow: hidden; /* Skjuler slides der er udenfor karuselen, viser ikke alle 4 på engang*/
-  }
-
-  .karusel-btn {
-    background: none;
-    border: none;
-    font-size: 4rem;
-    cursor: pointer;
-    color: var(--color-text);
-  }
-
-  .karusel-slide {
-    opacity: 0.5; /* De inaktive slides bliver gennemsigtige */
-    transform: scale(0.85); /* De inaktive slides bliver mindre */
-    transition:
-      transform 0.4s ease,
-      opacity 0.4s ease; /* Blød og smooth animation på størrelse og gennemsigtighed over 0.4 sekunder */
-  }
-
-  .karusel-slide.aktiv {
-    opacity: 1; /* Det aktive slide bliver synligt */
-    transform: scale(1); /* Det aktive slide bliver normal størrelse */
-  }
-
-  /* Prikker */
-  .prikker {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px;
-    margin-bottom: 120px;
-  }
-
-  .prikker span {
-    /* "normal" prik */
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: var(--color-text);
-    opacity: 1;
-  }
-
-  .prikker span.aktiv {
-    /* Aktiv prik */
-    width: 20px;
-    height: 20px;
-    background-color: var(--color-accent);
-    opacity: 1;
-  }
-
-  /* Mobil scroll - skjult på desktop */
-  .scroll-mobil {
-    display: none;
+  .scroll-mobil::-webkit-scrollbar-thumb {
+    background: var(--color-text); /* Farven på selve scrollbaren */
+    border-radius: 10px;
   }
 
   /* Billeder af Sofie */
   .Sof {
-    display: flex;
-    position: relative;
-    background-color: var(--color-text);
+    display: block;
+    margin-bottom: 50px;
   }
 
   .sof1 {
-    width: 50%;
-    object-fit: cover;
-    padding: 100px;
+    width: 100%;
+    padding: 0;
   }
 
   .sof2 {
-    width: 50%;
+    width: 100%;
+    padding: 100px;
     object-fit: cover;
   }
 
   .plusplacering {
     position: absolute;
-    bottom: 20px;
+    bottom: 38rem;
     right: 10px;
-  }
-
-  /* Mors dag */
-  .morsdag {
-    display: flex;
-    margin-top: 150px;
-  }
-
-  .morsdag h2 {
-    padding: 30px;
-    padding-bottom: 0;
-  }
-
-  .morsdag p {
-    padding: 35px;
-  }
-
-  .Knap1 {
-    padding: 20px;
-    padding-top: 100px;
-  }
-
-  .morsdag img {
-    position: relative;
   }
 
   .plusplacering1 {
     position: absolute;
-    bottom: -178rem;
-    right: 43rem;
+    bottom: -102rem;
+    right: 10px;
+  }
+
+  /* Mors dag */
+.morsdag {
+   display: block;
+}
+
+.morsdag img {
+  width: 100%;
+  height: 20rem;
+}
+
+  .morsdag h2 {
+    margin: 20px;
+    margin-bottom: 5px;
+    padding: 0;
+  }
+
+  .morsdag p {
+    margin: 20px;
+    margin-bottom: 30px;
+    padding: 0;
+  }
+
+  .Knap1 {
+    margin-bottom: 50px;
+    margin-left: 5px;
+    padding: 0;
   }
 
   /* Kategori */
   .kategori {
-    background-color: var(--color-blue);
-    padding-bottom: 40px;
-    margin-top: 150px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 1px;
+    margin-top: 0;
   }
 
   .kategori h2 {
-    color: var(--color-background);
-    text-align: center;
-    padding: 40px;
+    margin: 20px;
+    padding: 0;
   }
 
-  @media (min-width: 768px) {
-    .scroll-mobil2 {
-      display: flex;
-      justify-content: center;
-      padding-top: 20px;
-      padding-bottom: 40px;
-      gap: 30px;
-    }
+  .kategori img {
+    display: block;
+    width: 115px;
+  }
 
-    .scroll-mobil2 div {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      padding-bottom: 20px;
-    }
+  /* Viser scroll på mobil i kategori */
+  .scroll-mobil2 {
+    overflow-x: scroll;
+    justify-content: unset;
+    gap: 20px;
+    padding: 20px;
+    margin-bottom: 50px;
+  }
 
-    .scroll-mobil2 div img {
-      width: 300px;
-      margin-bottom: -40px; /* Trækker billedet ned over knappen */
-      z-index: 1;
-    }
+  .scroll-mobil2::-webkit-scrollbar {
+    height: 10px; /* Højden på scrollbaren */
+  }
 
-    .scroll-mobil2 div :global(a) {
-      /* styler <a> tagget inde i en komponenten */
-      z-index: 2; /* Knappen kommer foran billedet */
-      position: relative;
-    }
+  .scroll-mobil2::-webkit-scrollbar-track {
+    background: #ffffff4d; /* Farven bag scrollbaren */
+    padding-left: 10px;
+  }
+
+  .scroll-mobil2::-webkit-scrollbar-thumb {
+    background: var(--color-accent); /* Farven på selve scrollbaren */
+    border-radius: 10px;
+  }
+
+  .scroll-mobil2 div img {
+    width: 115px;
   }
 
   /* Instagram */
   .insta h2 {
-    text-align: center;
-    margin-top: 80px;
-    margin-bottom: 20px;
+    margin-top: 60px;
+    margin-bottom: 0;
   }
 
   .insta h3 {
-    text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 
-  .insta-billeder {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 40px;
-    margin-bottom: 150px;
+  .insta3 {
+    display: none; /* Skjuler det tredje billede på mobil */
   }
 
   .insta img {
-    width: 30%;
-    object-fit: cover;
+    width: 45%;
   }
 
-  @media (max-width: 768px) {
-    /* Toppen af siden */
-    .hero {
-      margin-bottom: 60px;
-      margin-top: -82px;
-    }
-
-    /* Skjul karsusel og prikker på mobil */
-    .karusel {
-      display: none;
-    }
-
-    .prikker {
-      display: none;
-    }
-
-    /* Vis scroll på mobil */
-    .scroll-mobil {
-      display: flex;
-      overflow-x: scroll;
-      gap: 20px;
-      padding: 20px;
-      margin-bottom: 100px;
-    }
-
-    .scroll-mobil::-webkit-scrollbar {
-      height: 5px; /* Højden på scrollbaren */
-    }
-
-    .scroll-mobil::-webkit-scrollbar-track {
-      background: #703b3c2d; /* Farven bag scrollbaren */
-      padding-left: 10px;
-    }
-
-    .scroll-mobil::-webkit-scrollbar-thumb {
-      background: var(--color-text); /* Farven på selve scrollbaren */
-      border-radius: 10px;
-    }
-
-    /* Billeder af Sofie */
-    .Sof {
-      display: block;
-      margin-bottom: 50px;
-    }
-
-    .sof1 {
-      width: 100%;
-      padding: 0;
-    }
-
-    .sof2 {
-      padding: 100px;
-      object-fit: cover;
-      width: 100%;
-    }
-
-    .plusplacering {
-      position: absolute;
-      bottom: 38rem;
-      right: 10px;
-    }
-
-    .plusplacering1 {
-      position: absolute;
-      bottom: -102rem;
-      right: 10px;
-    }
-
-    /* Mors dag */
-
-    .morsdag {
-      display: block;
-      margin: 0;
-    }
-
-    .morsdag h2 {
-      margin: 20px;
-      margin-bottom: 5px;
-      padding: 0;
-    }
-
-    .morsdag p {
-      margin: 20px;
-      margin-bottom: 30px;
-      padding: 0;
-    }
-
-    .morsdag img {
-      object-fit: cover;
-      object-position: top;
-      height: 300px;
-      padding: 0;
-    }
-
-    .Knap1 {
-      margin-bottom: 50px;
-      margin-left: 5px;
-      padding: 0;
-    }
-
-    /* Kategori */
-    .kategori {
-      padding-left: 20px;
-      padding-top: 20px;
-      padding-bottom: 1px;
-      background-color: var(--color-blue);
-      margin-top: 0;
-    }
-
-    .kategori h2 {
-      padding-left: 20px;
-      color: var(--color-background);
-      text-align: center;
-      margin: 20px;
-      padding: 0px;
-    }
-
-    .kategori img {
-      display: block;
-      width: 115px;
-    }
-
-    /* Viser scroll på mobil i kategori */
-    .scroll-mobil2 {
-      display: flex;
-      overflow-x: scroll;
-      gap: 20px;
-      padding: 20px;
-      margin-bottom: 50px;
-    }
-
-    .scroll-mobil2::-webkit-scrollbar {
-      height: 10px; /* Højden på scrollbaren */
-    }
-
-    .scroll-mobil2::-webkit-scrollbar-track {
-      background: #ffffff4d; /* Farven bag scrollbaren */
-      padding-left: 10px;
-    }
-
-    .scroll-mobil2::-webkit-scrollbar-thumb {
-      background: var(--color-accent); /* Farven på selve scrollbaren */
-      border-radius: 10px;
-    }
-
-    /* Instagram */
-    .insta h2 {
-      margin-top: 60px;
-      margin-bottom: 0;
-    }
-
-    .insta h3 {
-      margin-bottom: 20px;
-    }
-
-    .insta3 {
-      display: none; /* Skjuler det tredje billede på mobil */
-    }
-
-    .insta img {
-      width: 45%;
-    }
-
-    .insta {
-      margin-bottom: 50px;
-    }
+  .insta {
+    margin-bottom: 50px;
   }
+}
 </style>
 
 <!-- JavaScript (bruges kun til karusellen) -->
