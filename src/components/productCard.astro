@@ -1,90 +1,113 @@
 ---
 // Henter eksamen-data der er sendt med fra index //
-const { eksamen } = Astro.props;
-import Plusknap from './plusbutton.astro';
-console.log(eksamen); 
+const { eksamen, isHeartShown = true, showOenskeSkyen = false } = Astro.props;
+import Plusknap from "./plusbutton.astro";
+console.log(eksamen);
 ---
 
 <article>
-    <div class="productcard">
-        <div class="billeder">
-            <img class="farvorit" src="/img/ikoner/hjerte.svg" alt="farvorit"> 
-            <a  href={`/singleproduct/${eksamen.id}`}>
-                <img class="produktbillede" src={`/img/${eksamen.billede1}`} alt={eksamen.produktnavn}>
-            </a>
-            <div class="plusplacering">
-                <Plusknap href="/kurv" />
-            </div>
-        </div>
-        <h3>{eksamen.produktnavn}</h3>
-        <p>{eksamen.pris} kr</p>
+  <div class="productcard">
+    <div class="billeder">
+      {isHeartShown ? <img class="farvorit" src="/img/ikoner/hjerte.svg" alt="farvorit" /> : <img class="farvorit" src="/img/ikoner/cross.svg" alt="farvorit" />}
+      <a href={`/product-details/${eksamen.id}`}>
+        <img class="produktbillede" src={`/img/${eksamen.billede1}`} alt={eksamen.produktnavn} />
+      </a>
+      <div class="plusplacering">
+        <Plusknap href="/kurv" />
+      </div>
     </div>
+    <h3>{eksamen.produktnavn}</h3>
+    <p>{eksamen.pris} kr</p>
+    {
+      showOenskeSkyen && (
+        <a class="button" href={`/product-details/${eksamen.id}`}>
+          <img class="button-logo" src="/img/ikoner/oenskeskyen.svg" alt="" />
+          Tilføj til ønskeskyen
+        </a>
+      )
+    }
+  </div>
 </article>
 
 <style>
-    .productcard {
+  .button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #008fb4;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    justify-content: center;
+    border-radius: 10px;
+  }
+
+  .button-logo {
+    width: 20px;
+    height: 20px;
+  }
+
+  .productcard {
     display: flex;
     flex-direction: column;
 }
 
-h3,
-p {
+  h3,
+  p {
     padding-bottom: 10px;
-}
+  }
 
-.billeder{
+  .billeder {
     position: relative;
-       width: fit-content;
-   
-}
+    width: fit-content;
+  }
 
-
-.produktbillede {
+  .produktbillede {
     width: 310px;
     height: 310px;
     object-fit: cover;
-}
+  }
 
-.farvorit {
+  .farvorit {
     position: absolute;
     top: 10px;
     right: 10px;
     width: 25px;
     height: 25px;
-}
+  }
 
-.plusplacering {
-   position: absolute;
+  .plusplacering {
+    position: absolute;
     bottom: 10px;
     right: 10px;
-}
+  }
 
-@media (max-width: 768px) {
-h3,
-p {
-    padding-bottom: 5px;
-}
+  @media (max-width: 768px) {
+    h3,
+    p {
+      padding-bottom: 5px;
+    }
 
-.billeder{
-    position: relative;
-    width: fit-content;
-  padding-bottom: 2px;
-}
+    .billeder {
+      position: relative;
+      width: fit-content;
+      padding-bottom: 2px;
+    }
 
-.produktbillede {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-}
+    .produktbillede {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+    }
 
-.plusplacering {
-    bottom: 10px;
-}
+    .plusplacering {
+      bottom: 10px;
+    }
 
-  .productcard {
-  margin-bottom: 10px;  
-   padding-bottom: 0px;
-}
-}
-
+    .productcard {
+      margin-bottom: 10px;
+      padding-bottom: 0px;
+    }
+  }
 </style>

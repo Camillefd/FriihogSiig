@@ -2,7 +2,7 @@
 const { footerClass } = Astro.props;
 import Footer from "../components/footer.astro";
 import Header from "../components/menu.astro";
-import Global from "./gobal.css";
+import ProductCard from "../components/productCard.astro";
 import Layout from "../layout/layout.astro";
 
 //Supabase-oplysninger hentes fra import.meta.env//
@@ -18,5 +18,33 @@ const options = {
 
 //Koden kører i Astro frontmatter await fetch() erstatter getData()//
 const data = await fetch(url, options).then((res) => res.json());
+console.log("data", data);
+
 //data kan bagefter bruges direkte i HTML-delen//
 ---
+
+<Layout title="Dine Favoritter">
+  <section class="favoritter-side">
+    <h1>Dine Favoritter</h1>
+    <div class="favoritter-grid">
+      {
+        data.map((produkt: any) => {
+          return <ProductCard eksamen={produkt} isHeartShown={false} showOenskeSkyen={true} />;
+        })
+      }
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .favoritter-side {
+    padding: 0 113px;
+  }
+
+  .favoritter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+
+    justify-content: space-between;
+  }
+</style>
