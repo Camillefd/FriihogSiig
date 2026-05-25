@@ -188,12 +188,90 @@ const data = await fetch(url, options).then((res) => res.json());
     opacity: 1;
   }
 
-  .prikker span.aktiv {
-    /* Aktiv prik */
-    width: 20px;
-    height: 20px;
-    background-color: var(--color-accent);
-    opacity: 1;
+.plusplacering1{
+    position: absolute;
+    bottom: -173rem;
+    right: 43rem;
+}
+
+/* Kategori */
+.kategori {
+  background-color: var(--color-blue);
+  padding-bottom: 40px;
+margin-top: 150px;
+}
+
+.kategori h2 {
+  color: var(--color-background);
+  text-align: center;
+  padding: 40px;
+}
+
+@media (min-width: 768px) {
+.scroll-mobil2 {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  gap: 30px;
+}
+
+
+.scroll-mobil2 div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.scroll-mobil2 div img {
+  width: 300px;
+  margin-bottom: -40px; /* Trækker billedet ned over knappen */
+  z-index: 1;
+}
+
+.scroll-mobil2 div :global(a) { /* styler <a> tagget inde i en komponenten */
+    z-index: 2; /* Knappen kommer foran billedet */
+    position: relative;
+}
+}
+
+
+/* Instagram */
+.insta h2 {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 20px;
+}
+
+.insta h3{
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.insta-billeder {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px;
+  margin-bottom: 150px;
+}
+
+.insta img {
+  width: 30%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+/* Toppen af siden */
+.hero {
+    margin-bottom: 60px;
+}
+
+ /* Skjul karsusel og prikker på mobil */
+  .karusel {
+    display: none;
   }
 
   /* Mobil scroll - skjult på desktop */
@@ -223,10 +301,65 @@ const data = await fetch(url, options).then((res) => res.json());
     position: absolute;
     bottom: 20px;
     right: 10px;
-  }
+}
 
-  /* Mors dag */
-  .morsdag {
+ /* Mors dag */
+
+.morsdag {
+  display: block;
+  margin: 0;
+}
+
+.morsdag h2 {
+  margin: 30px;
+  margin-bottom: 2px;
+  padding: 0;
+}
+
+.morsdag p {
+  margin: 30px;
+  margin-bottom: 30px;
+  padding: 0;
+}
+
+.morsdag img {
+  object-fit: cover;
+  object-position: top;
+  height: 300px;
+  padding: 0;
+}
+
+.Knap1 {
+  margin-bottom: 50px;
+  margin-left: 10px;
+  padding: 0;
+}
+
+ /* Kategori */
+.kategori {
+padding-left: 20px;
+padding-top: 20px;
+padding-bottom: 1px;
+background-color: var(--color-blue);
+margin-top: 0;
+}
+
+
+.kategori h2 {
+padding-left: 20px;
+color: var(--color-background);
+text-align: center;
+margin: 20px;
+padding: 0px;
+}
+
+.kategori img {
+  display: block;
+  width: 115px;
+}
+
+  /* Viser scroll på mobil i kategori */
+  .scroll-mobil2 {
     display: flex;
     margin-top: 150px;
   }
