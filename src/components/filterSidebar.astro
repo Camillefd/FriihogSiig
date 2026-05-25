@@ -3,44 +3,46 @@
 // header.css
 ---
 
-<div class="filter-box">
-  <div class="filter-header">
-    <h3>Filter</h3>
-  </div>
-
-  <div class="filter-content">
-    <div class="price-range">
-      <input type="text" placeholder="kr." />
-      <span>til</span>
-      <input type="text" placeholder="kr." />
+<div class="filtre">
+  <div class="filter-box">
+    <div class="filter-header">
+      <h3>Filter</h3>
     </div>
 
-    <div class="accordion">
-      <button class="accordion-header">
-        Farve
-        <span>⌄</span>
-      </button>
-
-      <div class="accordion-content">
-        <label><input type="checkbox" /> Guld</label>
-        <label><input type="checkbox" /> Sølv</label>
-        <label><input type="checkbox" /> Perler</label>
+    <div class="filter-content">
+      <div class="price-range">
+        <input type="text" placeholder="kr." />
+        <span>til</span>
+        <input type="text" placeholder="kr." />
       </div>
-    </div>
 
-    <div class="accordion">
-      <button class="accordion-header">
-        Kampagne
-        <span>⌄</span>
-      </button>
+      <div class="accordion">
+        <button class="accordion-header">
+          Farve
+          <span>⌄</span>
+        </button>
 
-      <div class="accordion-content">
-        <label><input type="checkbox" /> Udsalg</label>
-        <label><input type="checkbox" /> Nyheder</label>
+        <div class="accordion-content">
+          <label><input type="checkbox" /> Guld</label>
+          <label><input type="checkbox" /> Sølv</label>
+          <label><input type="checkbox" /> Perler</label>
+        </div>
       </div>
-    </div>
 
-    <button class="apply-btn">Anvend</button>
+      <div class="accordion">
+        <button class="accordion-header">
+          Kampagne
+          <span>⌄</span>
+        </button>
+
+        <div class="accordion-content">
+          <label><input type="checkbox" /> Udsalg</label>
+          <label><input type="checkbox" /> Nyheder</label>
+        </div>
+      </div>
+
+      <button class="apply-btn">Anvend</button>
+    </div>
   </div>
 </div>
 
@@ -63,17 +65,29 @@
 
 <style>
   .filter-box:has(.filter-header.active) {
-    background: #ede2cf;
+    background: var(--color-background);
     padding: 2rem;
-    border: 1px solid #8b5e5e;
+    border: 1px solid var(--color-text);
     max-width: 400px;
     font-family: serif;
+  }
+
+  .filtre {
+    display: flex; /* Starter flexboxen så indholdet kan rykkes rundt */
+    justify-content: flex-end; /* Skubber indholdet helt til højre */
+    margin-right: 80px;
+    margin-bottom: 2rem;
   }
 
   .filter-header {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 2rem;
+    cursor: pointer;
+  }
+
+  .filter-header.active {
+    margin-right: unset;
   }
 
   .filter-content {
@@ -85,7 +99,7 @@
   }
 
   .filter-header h3 {
-    color: #2d2a6e;
+    color: var(--color-blue)
     font-size: 1.2rem;
   }
 
@@ -97,7 +111,7 @@
   }
 
   .price-range input {
-    background: #d8c3b1;
+    background: color-mix(in srgb, var(--color-text) 25%, transparent);
     border: none;
     padding: 1rem;
     width: 100%;
@@ -106,11 +120,11 @@
   }
 
   .accordion {
-    border-top: 1px solid #8b5e5e;
+    border-top: 1px solid var(--color-text);
   }
 
   .accordion:last-of-type {
-    border-bottom: 1px solid #8b5e5e;
+    border-bottom: 1px solid var(--color-text);
   }
 
   .accordion-header {
@@ -122,7 +136,7 @@
     justify-content: space-between;
     align-items: center;
     font-size: 1rem;
-    color: #6a3f3f;
+    color: var(--color-text);
     cursor: pointer;
   }
 
@@ -140,8 +154,8 @@
   .apply-btn {
     display: block;
     margin: 2rem auto 0;
-    background: #7a3f46;
-    color: white;
+    background: var(--color-text);
+    color: var(--color-background);
     border: none;
     padding: 1rem 3rem;
     border-radius: 8px;
@@ -152,6 +166,21 @@
   label {
     display: flex;
     gap: 0.5rem;
-    color: #6a3f3f;
+    color: var(--color-text);
+  }
+  @media screen and (max-width: 768px) {
+    .filter-box:has(.filter-header.active) {
+      width: 100%;
+      max-width: unset;
+    }
+
+    .filtre {
+      margin-right: 50px;
+    }
+
+    .filtre:has(.filter-header.active) {
+      margin-right: unset;
+      padding: 0 1rem;
+    }
   }
 </style>
