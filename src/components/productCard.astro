@@ -9,7 +9,7 @@ console.log(eksamen);
     <div class="productcard">
         <div class="billeder">
             <img class="farvorit" src="/img/ikoner/hjerte.svg" alt="farvorit"> 
-            <a  href={`/${eksamen.id}`}>
+            <a  href={`/singleproduct/${eksamen.id}`}>
                 <img class="produktbillede" src={`/img/${eksamen.billede1}`} alt={eksamen.produktnavn}>
             </a>
             <div class="plusplacering">
@@ -25,7 +25,6 @@ console.log(eksamen);
     .productcard {
     display: flex;
     flex-direction: column;
-    padding-bottom: 70px;
 }
 
 h3,

@@ -85,7 +85,8 @@ Friihogsiig/
 │   │   ├── kurv.astro
 │   │   ├── omFS.astro
 │   │   ├── productlist.astro
-│   │   ├── [id].astro
+│   │   │   ├── singleproduct
+│   │   │   │   ├── [id].astro
 │   ├── styles/
 │   │   ├── footer.css
 │   │   ├── global.css
