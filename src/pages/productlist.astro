@@ -32,9 +32,8 @@ const data = await fetch(url, options).then((res) => res.json());
     <Breadcrumb />
   </div>
   <h1>Nyheder</h1>
-  <div class="filtre">
-    <FilterSidebar />
-  </div>
+
+  <FilterSidebar />
 
   <div class="grid">
     {data.map((produkt) => <Card eksamen={produkt} />)}
@@ -78,13 +77,6 @@ const data = await fetch(url, options).then((res) => res.json());
         margin: 50px;
       }
 
-      .filtre {
-        display: flex; /* Starter flexboxen så indholdet kan rykkes rundt */
-        justify-content: flex-end; /* Skubber indholdet helt til højre */
-        margin-right: 80px;
-        margin-bottom: 2rem;
-      }
-
       .produkter {
         display: flex; /* Starter flexboxen så indholdet kan rykkes rundt */
         justify-content: center;
@@ -115,10 +107,6 @@ const data = await fetch(url, options).then((res) => res.json());
 
         h1 {
           margin: 30px;
-        }
-
-        .filtre {
-          margin-right: 50px;
         }
 
         .semere {
