@@ -1,59 +1,118 @@
 ---
 //components/menu.astro
 import Layout from "../layout/layout.astro";
+
+const pathName = Astro.url.pathname;
+
+let isHome = pathName === "/";
 ---
+
+<script>
+  const burger = document.querySelector(".burger");
+  const dropdowns = document.querySelectorAll(".dropdown");
+  const about = document.querySelector(".about");
+  const mainItems = document.querySelector(".menu-main-items");
+
+  if (burger) {
+    burger.addEventListener("click", () => {
+      mainItems?.classList.toggle("active");
+      document.body.classList.toggle("menu-open");
+      (burger.children[0] as HTMLImageElement).src = mainItems?.classList.contains("active") ? "/img/ikoner/cross.svg" : "/img/ikoner/burger.svg";
+    });
+  }
+
+  const dropdownLinks = document.querySelectorAll(".dropdown > a");
+
+  dropdownLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+
+        const parent = link.closest(".dropdown");
+
+        parent?.classList.add("submenu-open");
+        mainItems?.classList.add("submenu-active");
+      }
+    });
+  });
+
+  const backButtons = document.querySelectorAll(".back-btn");
+
+  backButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      btn.closest(".dropdown")?.classList.remove("submenu-open");
+
+      mainItems?.classList.remove("submenu-active");
+    });
+  });
+</script>
 
 <header>
   <nav>
     <ul class="menu">
-      <li class="dropdown dropdown-1">
-        <a href="/productlist">Smykker</a>
-        <ul class="dropdown-menu-1 dropdown-menu">
-          <div class="dropdown-content">
-            <li><a href="">Nyheder </a></li>
-            <li><a href="/productlist">Bestsellers</a></li>
-            <li><a href="/productlist">Øreringe</a></li>
-            <li><a href="/productlist">Halskæder</a></li>
-            <li><a href="/productlist">Armbånd</a></li>
-            <li><a href="/productlist">Brocher</a></li>
-          </div>
-          <div class="dropdown-image">
-            <img src="/img/sb4.webp" alt="" />
-          </div>
-        </ul>
-      </li>
-      <li class="dropdown dropdown-2">
-        <a href="/Smykker">Gaver</a>
-        <ul class="dropdown-menu-2 dropdown-menu">
-          <div class="dropdown-content">
-            <div class="pris">
-              <li><h4>Pris:</h4></li>
-              <li><a href="/productlist">Under 200kr</a></li>
-              <li><a href="/productlist">Under 300kr</a></li>
-              <li><a href="/productlist">Under 400kr</a></li>
-              <li><a href="/productlist">Over 400kr</a></li>
+      <div class="burger"><img src="/img/ikoner/burger.svg" alt="" /></div>
+
+      <div class="menu-main-items">
+        <li class="dropdown dropdown-1">
+          <a href="/productlist">Smykker</a>
+          <ul class="dropdown-menu-1 dropdown-menu">
+            <button class="back-btn"><img src="/img/ikoner/pil-v.svg" alt="tilbage" /></button>
+            <div class="dropdown-content">
+              <li><a href="">Nyheder</a></li>
+              <li><a href="/productlist">Bestsellers</a></li>
+              <li><a href="/productlist">Øreringe</a></li>
+              <li><a href="/productlist">Halskæder</a></li>
+              <li><a href="/productlist">Armbånd</a></li>
+              <li><a href="/productlist">Brocher</a></li>
             </div>
-            <div class="anledning">
-              <li><h4>Anledning:</h4></li>
-              <li><a href="/productlist">Mors dag</a></li>
-              <li><a href="/productlist">Konfirmation</a></li>
-              <li><a href="/productlist">Student</a></li>
+            <div class="dropdown-image">
+              <img src="/img/sb4.webp" alt="" />
             </div>
-          </div>
-          <div class="dropdown-image">
-            <img src="/img/mpm3.webp" alt="" />
-          </div>
-        </ul>
-      </li>
+          </ul>
+        </li>
 
-      <li><a href="/omFS">Om F+S</a></li>
-      <li class="menu-logo"><a href="/"> <img src="/img/ikoner/logo-fs.svg" alt="logo" /></a></li>
+        <li class="dropdown dropdown-2">
+          <a href="/Smykker">Gaver</a>
+          <ul class="dropdown-menu-2 dropdown-menu">
+            <button class="back-btn"><img src="/img/ikoner/pil-v.svg" alt="tilbage" /></button>
+            <div class="dropdown-content">
+              <div class="pris">
+                <li><h4>Pris:</h4></li>
+                <li><a href="/productlist">Under 200kr</a></li>
+                <li><a href="/productlist">Under 300kr</a></li>
+                <li><a href="/productlist">Under 400kr</a></li>
+                <li><a href="/productlist">Over 400kr</a></li>
+              </div>
+              <div class="anledning">
+                <li><h4>Anledning:</h4></li>
+                <li><a href="/productlist">Mors dag</a></li>
+                <li><a href="/productlist">Konfirmation</a></li>
+                <li><a href="/productlist">Student</a></li>
+              </div>
+            </div>
+            <div class="dropdown-image">
+              <img src="/img/mpm3.webp" alt="" />
+            </div>
+          </ul>
+        </li>
 
-      <li><a href="/favoritter">Dine Favoritter</a></li>
-      <li><a href="/kurv">Kurv</a></li>
-
-      <div>
-        <li>
+        <li class="about"><a href="/omFS">Om F+S</a></li>
+      </div>
+      <li class={`menu-logo ${isHome ? "hide-on-mobile-home" : ""}`}><a href="/"><img src="/img/ikoner/logo-fs.svg" alt="logo" /></a></li>
+      <div class="mobile-icons">
+        <li class="favoritter">
+          <a href="/favoritter">
+            <span class="link-text">Dine Favoritter</span>
+            <img class="link-icon" src="/img/ikoner/hjerte.svg" alt="Dine Favoritter" />
+          </a>
+        </li>
+        <li class="kurv">
+          <a href="/kurv">
+            <span class="link-text">Kurv</span>
+            <img class="link-icon" src="/img/ikoner/kurv.svg" alt="Kurv" />
+          </a>
+        </li>
+        <li class="search-item">
           <button class="search-icon" type="button">
             <img src="/img/ikoner/soge.svg" alt="søgefunktion" />
           </button>
@@ -62,17 +121,3 @@ import Layout from "../layout/layout.astro";
     </ul>
   </nav>
 </header>
-
-<style>
-  .search-icon {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-  }
-
-  .search-icon img {
-    width: 28px;
-    display: block;
-  }
-</style>

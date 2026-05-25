@@ -75,31 +75,12 @@ header a {
   font-size: 20px;
 }
 
-.dropdown-1:hover .dropdown-menu-1 .dropdown-content,
-.dropdown-2:hover .dropdown-menu-2 .dropdown-content {
-  display: flex;
-}
-
-.dropdown-1:hover .dropdown-menu-1,
-.dropdown-2:hover .dropdown-menu-2 {
-  display: flex;
-  justify-content: space-between;
-}
-
 .menu li a {
   display: inline-block;
   transition:
     transform 0.2s ease,
     color 0.2s ease;
   transform-origin: center;
-}
-
-.dropdown-1:hover > a,
-.dropdown-2:hover > a,
-.menu li a:hover {
-  transform: scale(1.2);
-  font-style: italic;
-  color: var(--color-accent);
 }
 
 .dropdown-menu-1 .dropdown-content {
@@ -125,10 +106,229 @@ header a {
   line-height: normal;
 }
 
-nav:has(.dropdown:hover) {
-  background-color: var(--color-background);
+.burger {
+  display: none;
 }
 
-.dropdown:hover > a {
-  background-color: var(--color-background);
+.mobile-icons {
+  display: flex;
+  gap: 7rem;
+}
+
+.menu-main-items {
+  display: flex;
+  gap: 7rem;
+}
+
+.link-icon {
+  display: none;
+  width: 28px;
+}
+
+.search-icon {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.search-icon img {
+  width: 28px;
+  display: block;
+}
+
+.back-btn {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  /* ALL hover styles here */
+  nav:has(.dropdown:hover) {
+    background-color: var(--color-background);
+  }
+
+  .dropdown:hover > a {
+    background-color: var(--color-background);
+  }
+
+  .dropdown-1:hover > a,
+  .dropdown-2:hover > a,
+  .menu li a:hover {
+    transform: scale(1.2);
+    font-style: italic;
+    color: var(--color-accent);
+  }
+
+  .dropdown-1:hover .dropdown-menu-1 .dropdown-content,
+  .dropdown-2:hover .dropdown-menu-2 .dropdown-content {
+    display: flex;
+  }
+
+  .dropdown-1:hover .dropdown-menu-1,
+  .dropdown-2:hover .dropdown-menu-2 {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    margin: 1rem 2rem;
+    z-index: 99999;
+  }
+
+  .burger {
+    display: block;
+    justify-self: start;
+    width: 20px;
+    height: 20px;
+  }
+
+  .mobile-icons {
+    display: flex;
+    justify-self: end;
+    align-items: center;
+    gap: 12px;
+    grid-column-start: 3;
+  }
+
+  nav {
+    z-index: 9999;
+  }
+
+  .menu-main-items {
+    display: none;
+  }
+
+  header {
+    height: 82px;
+  }
+
+  nav {
+    height: 82px;
+  }
+
+  .menu-main-items.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 66px;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-background);
+    padding: 10px 2rem 56px;
+    gap: 34px;
+    border-bottom: 2px solid var(--color-text);
+    z-index: 9999999;
+  }
+
+  .link-text {
+    display: none;
+  }
+
+  .menu-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .link-icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+
+  .search-icon img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    padding: 0;
+    z-index: 9999999;
+  }
+
+  .dropdown-content {
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 9999999;
+  }
+
+  .dropdown-image {
+    max-width: 100%;
+    aspect-ratio: auto;
+  }
+
+  .dropdown.submenu-open > .dropdown-menu {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .dropdown-image {
+    display: none;
+  }
+
+  /* .menu-main-items.active:has(.dropdown.submenu-open) > *:not(.dropdown.submenu-open),
+  .menu-main-items.active:has(.dropdown.submenu-open) .dropdown.dropdown.submenu-open > a {
+    display: none;
+  } */
+
+  .menu-main-items.submenu-active > *:not(.submenu-open) {
+    display: none;
+  }
+
+  .menu-main-items.submenu-active .submenu-open > a {
+    display: none;
+  }
+
+  .back-btn {
+    display: block;
+    border: none;
+    max-width: 60px;
+    background-color: transparent;
+  }
+
+  /* fjern hover animationer på mobil */
+  .menu li a:hover,
+  .dropdown-1:hover > a,
+  .dropdown-2:hover > a {
+    transform: none;
+    font-style: normal;
+    color: var(--color-text);
+    background-color: transparent;
+  }
+
+  .hide-on-mobile-home {
+    display: none;
+  }
+
+  nav:has(.menu-main-items.active) {
+    background-color: var(--color-background);
+  }
+
+  body.menu-open * {
+    pointer-events: none;
+  }
+
+  body.menu-open nav,
+  body.menu-open nav * {
+    pointer-events: auto;
+  }
+
+  .dropdown-menu-2 .dropdown-content {
+    gap: 2rem;
+  }
+
+  .dropdown-menu-2 h4 {
+    font-family: "Cormorant Garamond";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
 }

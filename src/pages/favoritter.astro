@@ -48,3 +48,33 @@ console.log("data", data);
     justify-content: space-between;
   }
 </style>
+
+<style>
+  .favoritter-side h1 {
+    font-size: 50px;
+    margin-bottom: 30px;
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .favoritter-side {
+      padding: 0 16px;
+      grid-template-columns: 1fr;
+    }
+
+    .favoritter-side h1 {
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    .favoritter-grid {
+      grid-template-columns: 1fr;
+      gap: 50px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+</style>
