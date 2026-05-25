@@ -18,7 +18,6 @@ const options = {
 
 //Koden kører i Astro frontmatter await fetch() erstatter getData()//
 const data = await fetch(url, options).then((res) => res.json());
-console.log("data", data);
 
 //data kan bagefter bruges direkte i HTML-delen//
 ---
@@ -43,9 +42,10 @@ console.log("data", data);
 
   .favoritter-grid {
     display: grid;
-    grid-template-columns: repeat(3, max-content);
-
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 2rem;
     justify-content: space-between;
+    justify-items: center;
   }
 </style>
 

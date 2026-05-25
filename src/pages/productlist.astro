@@ -1,130 +1,130 @@
 ---
 //@ts-nocheck
 import Layout from "../layout/layout.astro";
-import Knap from '../components/buttons.astro'
-import Plusknap from '../components/plusbutton.astro'
-import Skp from '../components/sidstKiggetPaa.astro'
-import Card from '../components/productCard.astro'
-import "../styles/global.css"
+import Knap from "../components/buttons.astro";
+import Plusknap from "../components/plusbutton.astro";
+import Skp from "../components/sidstKiggetPaa.astro";
+import Card from "../components/productCard.astro";
+import "../styles/global.css";
+import filter from "../components/filterSidebar.astro";
+import FilterSidebar from "../components/filterSidebar.astro";
+import Breadcrumb from "../components/breadcrumb.astro";
 
 //Supabase-oplysninger hentes fra import.meta.env//
-const url = `${import.meta.env.SUPABASE_URL}/rest/v1/eksamen?select=*&order=id.asc&limit=12` /*** Får produkterne i rækkefølge "order=id.asc" og viser kun 12 produkter "limit=12"  ***/
+const url = `${import.meta.env.SUPABASE_URL}/rest/v1/eksamen?select=*&order=id.asc&limit=12`; /*** Får produkterne i rækkefølge "order=id.asc" og viser kun 12 produkter "limit=12"  ***/
 const apiKey = import.meta.env.SUPABASE_PUBLISHABLE_KEY;
 
 const options = {
-//API-nøglen sendes med i headers//
-headers: {
-apikey: apiKey,
-},
+  //API-nøglen sendes med i headers//
+  headers: {
+    apikey: apiKey,
+  },
 };
 
 //Koden kører i Astro frontmatter await fetch() erstatter getData()//
-const data = await fetch(url, options)
-.then((res) => res.json());
+const data = await fetch(url, options).then((res) => res.json());
 //data kan bagefter bruges direkte i HTML-delen//
-console.log(data); 
 ---
+
 <Layout>
-    <img class="hero" src="/img/eske.webp" alt="øreringe">
-    <div class="bk">
-   <p>Brødkrummesti</p>
-   </div>
-    <h1>Nyheder</h1>
-    <div class="filtre">
-    <p> Filtre </p>
-    </div>
-      
-         
-           
-  <div class="grid">
-    {data.map((produkt) => (
-      <Card eksamen={produkt} />
-    ))}
+  <img class="hero" src="/img/eske.webp" alt="øreringe" />
+  <div class="bk">
+    <Breadcrumb />
   </div>
-<div class="produkter">
-<p>12/49 produkter</p>
-</div>
-<div class="semere">
-<Knap tekst="Se mere..." href="" type="blaa" />
-</div>
+  <h1>Nyheder</h1>
+  <div class="filtre">
+    <FilterSidebar />
+  </div>
 
-<Skp eksamen1={data[1]} eksamen2={data[2]}
+  <div class="grid">
+    {data.map((produkt) => <Card eksamen={produkt} />)}
+  </div>
+  <div class="produkter">
+    <p>12/49 produkter</p>
+  </div>
+  <div class="semere">
+    <Knap tekst="Se mere..." href="" type="blaa" />
+  </div>
 
-</Layout>
-
-<!----- Styling af gridet, så produkterne er ved siden af hindanen--->
-<style>
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 70px;
-    padding-top: 0px;
-        padding-bottom: 0px;
-  }
-
-  .hero {
-    position: relative;
-    width: 100%;
-    height: 38rem;
-    object-position: top;
-    object-fit: cover;
-    margin-top: -170px;
-  }
-
-  .bk {
-    margin: 20px;
-    margin-left: 70px;
-  }
-
-  h1 {
-    text-align:  center;
-    margin: 50px;
-  }
-
-  .filtre {
-      display: flex; /* Starter flexboxen så indholdet kan rykkes rundt */
-    justify-content: flex-end; /* Skubber indholdet helt til højre */
-    margin-right: 80px;
-  }
-
-  .produkter {
-    display: flex; /* Starter flexboxen så indholdet kan rykkes rundt */
-    justify-content: center;
-  }
-
-  .semere{
-    display: flex; /* Starter flexboxen så indholdet kan rykkes rundt */
-    justify-content: center; 
-    padding-bottom: 150px;
-  }
-
-  @media (max-width: 768px) {
+  <Skp eksamen1={data[1]} eksamen2={data[2]} < Layout>
+    <!----- Styling af gridet, så produkterne er ved siden af hindanen--->
+    <style>
       .grid {
-    gap: 20px;
-      grid-template-columns: repeat(2, 1fr);
-    padding: 40px;
-    padding-top: 0px;
-  }
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 70px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        justify-items: center;
+        gap: 1rem;
+      }
 
-    img {
-   display: none;
-  }
+      .hero {
+        position: relative;
+        width: 100%;
+        height: 38rem;
+        object-position: top;
+        object-fit: cover;
+        margin-top: -170px;
+      }
 
- .bk {
-    margin: 10px;
-    margin-left: 35px;
-  }
+      .bk {
+        margin: 20px;
+        margin-left: 70px;
+      }
 
-  h1{
-      margin: 30px;
-  }
+      h1 {
+        text-align: center;
+        margin: 50px;
+      }
 
-    .filtre {
-    margin-right: 50px;
-  }
+      .filtre {
+        display: flex; /* Starter flexboxen så indholdet kan rykkes rundt */
+        justify-content: flex-end; /* Skubber indholdet helt til højre */
+        margin-right: 80px;
+        margin-bottom: 2rem;
+      }
 
-   .semere{
-    padding-bottom: 50px;
-  }
-}
-</style>
+      .produkter {
+        display: flex; /* Starter flexboxen så indholdet kan rykkes rundt */
+        justify-content: center;
+      }
+
+      .semere {
+        display: flex; /* Starter flexboxen så indholdet kan rykkes rundt */
+        justify-content: center;
+        padding-bottom: 150px;
+      }
+
+      @media (max-width: 768px) {
+        .grid {
+          gap: 20px;
+          grid-template-columns: repeat(2, 1fr);
+          padding: 40px;
+          padding-top: 0px;
+        }
+
+        img {
+          display: none;
+        }
+
+        .bk {
+          margin: 10px;
+          margin-left: 35px;
+        }
+
+        h1 {
+          margin: 30px;
+        }
+
+        .filtre {
+          margin-right: 50px;
+        }
+
+        .semere {
+          padding-bottom: 50px;
+        }
+      }
+    </style></Skp
+  ></Layout
+>
