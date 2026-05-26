@@ -9,6 +9,8 @@
 .search-section {
   background-color: #f3e3c8;
   padding: 0 5rem;
+position: relative;
+  z-index: 999;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease, padding 0.5s ease;
@@ -16,7 +18,7 @@
 
 .search-section.open {
   max-height: 180px;
-  padding: 2.5rem 5rem 3rem;
+  padding: 2.5rem 5rem 5rem;
 }
 
 .search-form {

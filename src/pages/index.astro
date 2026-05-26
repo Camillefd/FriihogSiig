@@ -5,10 +5,13 @@ import Knap from "../components/buttons.astro";
 import Plusknap from "../components/plusbutton.astro";
 import Card from "../components/productCard.astro";
 import "../styles/global.css";
+import { createConsoleLogger } from "astro/app";
 
 //Supabase-oplysninger hentes fra import.meta.env//
 const url = `${import.meta.env.SUPABASE_URL}/rest/v1/eksamen?select=*&id=in.(27,35,36,49)&order=id.asc`; /*** Får produkterne i rækkefølge "order=id.asc" og vælger kun specifikke produkter "id=in.(27,35,36,49)"***/
 const apiKey = import.meta.env.SUPABASE_PUBLISHABLE_KEY;
+
+console.log("KEY", apiKey)
 
 const options = {
   //API-nøglen sendes med i headers//
@@ -19,6 +22,8 @@ const options = {
 
 //Koden kører i Astro frontmatter await fetch() erstatter getData()//
 const data = await fetch(url, options).then((res) => res.json());
+
+console.log("TEST", data)
 //data kan bagefter bruges direkte i HTML-delen//
 ---
 
