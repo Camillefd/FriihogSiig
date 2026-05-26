@@ -12,6 +12,7 @@ import Breadcrumb from "../../components/breadcrumb.astro";
 
 // Henter id fra URL'en
 const { id } = Astro.params;
+const showOenskeSkyen = true;
 
 //Supabase-oplysninger hentes fra import.meta.env//
 const apiKey = import.meta.env.SUPABASE_PUBLISHABLE_KEY;
@@ -71,7 +72,14 @@ const mmData = await fetch(mmUrl, options).then((res) => res.json());
             <button><img src="/img/ikoner/plus-b.svg" alt="blå plus" /></button>
           </div>
         </div>
-        <img class="sky" src="/img/ikoner/oe-sky.webp" alt="ønskesyen" />
+ {
+  showOenskeSkyen && (
+    <a class="sky" href={`/product-details/${produkt.id}`}>
+      <img class="button-logo" src="/img/ikoner/oenskeskyen.svg" alt="" />
+      Tilføj til ønskeskyen
+    </a>
+  )
+}
       </div>
     </div>
   </section>
@@ -201,6 +209,7 @@ const mmData = await fetch(mmUrl, options).then((res) => res.json());
     align-items: center;
     gap: 15px;
     padding-top: 30px;
+    padding-bottom: 15px;
   }
 
   .antal {
@@ -226,9 +235,22 @@ const mmData = await fetch(mmUrl, options).then((res) => res.json());
   }
 
   .sky {
-    width: 180px;
-    padding-top: 30px;
-    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #008fb4;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    justify-content: center;
+    border-radius: 10px;
+    width: 25rem;
+  }
+
+  .button-logo {
+    width: 20px;
+    height: 20px;
   }
 
   /**  Mix and match **/
@@ -341,7 +363,7 @@ const mmData = await fetch(mmUrl, options).then((res) => res.json());
     }
 
     .sky {
-      width: 135px;
+      width: 22rem;
       margin: 12px;
     }
 

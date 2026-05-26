@@ -4,9 +4,10 @@ import Footer from "../components/footer.astro";
 import Header from "../components/menu.astro";
 import ProductCard from "../components/productCard.astro";
 import Layout from "../layout/layout.astro";
+import Knap from "../components/buttons.astro";
 
 //Supabase-oplysninger hentes fra import.meta.env//
-const url = `${import.meta.env.SUPABASE_URL}/rest/v1/eksamen?select=*`;
+const url = `${import.meta.env.SUPABASE_URL}/rest/v1/eksamen?select=*&limit=4`;
 const apiKey = import.meta.env.SUPABASE_PUBLISHABLE_KEY;
 
 const options = {
@@ -26,12 +27,18 @@ const data = await fetch(url, options).then((res) => res.json());
   <section class="favoritter-side">
     <h1>Dine Favoritter</h1>
     <div class="favoritter-grid">
-      {
-        data.map((produkt: any) => {
-          return <ProductCard eksamen={produkt} isHeartShown={false} showOenskeSkyen={true} />;
-        })
-      }
+    {data.map((produkt: any) => {
+  return (
+    <div class="produkt-wrapper">
+      <ProductCard eksamen={produkt} isHeartShown={false} showOenskeSkyen={true} />
+      <div class="knap">
+      <Knap tekst="Tilføj til kurv" href="/kurv" type="orange" />
+      </div>
     </div>
+  );
+})}
+    </div>
+   
   </section>
 </Layout>
 
@@ -47,12 +54,19 @@ const data = await fetch(url, options).then((res) => res.json());
     justify-content: space-between;
     justify-items: center;
   }
+  .knap{
+    padding: 40px;
+  }
 </style>
 
 <style>
   .favoritter-side h1 {
     font-size: 50px;
     margin-bottom: 30px;
+  }
+
+  .favoritter-grid :global(.plusplacering) {
+    display: none;
   }
 
   /* MOBILE */
@@ -76,5 +90,10 @@ const data = await fetch(url, options).then((res) => res.json());
       width: 100%;
       height: auto;
     }
+
+  
+      .knap{
+    padding: 20px;
+  }
   }
 </style>
