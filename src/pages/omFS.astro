@@ -112,84 +112,81 @@ For FRIIHOF+SIIG er det væsentligt, at deres smykker ikke bliver til mængdevar
 </Layout>
 
 <style>
-    .vores-historie {
+   .omfs-page {
+  background-color: #1b0f4f;
+}
+
+.hero-image img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.vores-historie {
   background-color: #f8ead3;
-  padding: 6rem 5rem;
+  padding: 4rem 1.5rem;
   position: relative;
 }
 
 .vores-historie h2 {
-  position: absolute;
-  left: 3rem;
-  top: 6rem;
-
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-
-  font-size: 5rem;
+  font-size: 3rem;
   font-weight: 300;
   color: #7b3f3f;
+  margin-bottom: 2rem;
 }
 
 .historie-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-
+  grid-template-columns: 1fr;
+  gap: 3rem;
   max-width: 1100px;
-  margin-left: 10rem;
+  margin: 0 auto;
 }
 
 .historie-tekst {
   color: #7b3f3f;
-  line-height: 2.2;
-  font-size: 1.2rem;
+  line-height: 1.8;
+  font-size: 1rem;
 }
 
 .historie-tekst p {
   margin-bottom: 2rem;
 }
-.omfs-page {
-  background-color: #1b0f4f;
-}
 
 .find-butik {
   position: relative;
-  padding: 4rem;
+  padding: 4rem 1.5rem;
   color: #f8ead3;
-  min-height: 850px;
 }
 
 .find-butik h1 {
-  position: absolute;
-  right: 3rem;
-  top: 25rem;
-  writing-mode: vertical-rl;
-  font-size: 5rem;
+  font-size: 3rem;
   font-weight: 300;
   color: #f3e3c8;
-}
-
-.map-placeholder {
-  height: 480px;
-  background-color: #d8d8d8;
-  display: grid;
-  place-items: center;
+  margin-bottom: 2rem;
 }
 
 .store-search {
   display: flex;
-  gap: 2rem;
+  flex-direction: column;
+  gap: 1rem;
   margin-top: 2rem;
+  max-width: 400px;
 }
 
 .store-search input {
-  width: 300px;
+  width: 100%;
   padding: 0.8rem 1.5rem;
   border-radius: 6px;
   border: none;
   background-color: #8d83a8;
   color: white;
+}
+
+.store-search input::placeholder {
+  color: #1b0f4f;
+  font-family: garamond;
+  font-size: medium;
 }
 
 .store-search button,
@@ -200,13 +197,8 @@ For FRIIHOF+SIIG er det væsentligt, at deres smykker ikke bliver til mængdevar
   border-radius: 6px;
   padding: 0.8rem 2rem;
   font-family: inherit;
-font-size: large;
-}
-
-.store-search input::placeholder {
-  color: #1b0f4f;
-  font-family: garamond;
-  font-size: medium;
+  font-size: large;
+  cursor: pointer;
 }
 
 .store-list {
@@ -220,7 +212,7 @@ font-size: large;
 }
 
 .store-list h2 {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: 300;
   color: #f3e3c8;
 }
@@ -236,40 +228,36 @@ font-size: large;
 
 .reviews {
   background-color: #f3e3c8;
-  padding: 7rem 0 8rem;
+  padding: 5rem 1.5rem 6rem;
   text-align: center;
   overflow: hidden;
 }
 
 .reviews h2 {
   color: #7b3f3f;
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-weight: 300;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .review-carousel {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 1rem;
 }
 
 .review-track {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  width: 900px;
-
+  gap: 1rem;
+  width: 100%;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   scrollbar-width: none;
-
-  padding: 2rem 300px;
-  min-height: 500px;
-
-  scroll-marker-group: after;
+  padding: 1rem;
+  min-height: 330px;
 }
 
 .review-track::-webkit-scrollbar {
@@ -277,46 +265,33 @@ font-size: large;
 }
 
 .review-slide {
-  flex: 0 0 460px;
-
+  flex: 0 0 75%;
   scroll-snap-align: center;
-
   opacity: 0.55;
-transform: scale(0.7) translateY(-160px);
-
-  transition:
-    transform 1.4s ease,
-    opacity 1.4s ease;
-
+  transform: scale(0.85);
+  transition: transform 1.4s ease, opacity 1.4s ease;
   transform-origin: center center;
-
   will-change: transform;
   backface-visibility: hidden;
 }
 
 .review-slide.active {
-     flex-basis: 460px;
   opacity: 1;
-  transform: scale(1) translateY(0);
+  transform: scale(1);
 }
 
 .review-slide img {
   width: 100%;
   display: block;
-
   border-radius: 4px;
-
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-btn {
   background: none;
   border: none;
-
   color: #7b3f3f;
-
-  font-size: 5rem;
-
+  font-size: 3rem;
   cursor: pointer;
 }
 
@@ -329,8 +304,8 @@ transform: scale(0.7) translateY(-160px);
 }
 
 .dots span {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background-color: #7b3f3f;
   opacity: 0.8;
@@ -338,10 +313,110 @@ transform: scale(0.7) translateY(-160px);
 }
 
 .dots span.active {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   background-color: #ff955f;
   opacity: 1;
+}
+
+/* DESKTOP */
+@media (min-width: 900px) {
+  .vores-historie {
+    padding: 6rem 5rem;
+  }
+
+  .vores-historie h2 {
+    position: absolute;
+    left: 3rem;
+    top: 6rem;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 5rem;
+    margin-bottom: 0;
+  }
+
+  .historie-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    margin-left: 10rem;
+  }
+
+  .historie-tekst {
+    line-height: 2.2;
+    font-size: 1.2rem;
+  }
+
+  .find-butik {
+    padding: 4rem;
+    min-height: 850px;
+  }
+
+  .find-butik h1 {
+    position: absolute;
+    right: 3rem;
+    top: 25rem;
+    writing-mode: vertical-rl;
+    font-size: 5rem;
+    margin-bottom: 0;
+  }
+
+  .store-search {
+    flex-direction: row;
+    gap: 2rem;
+    max-width: none;
+  }
+
+  .store-search input {
+    width: 300px;
+  }
+
+  .store-list h2 {
+    font-size: 1.7rem;
+  }
+
+  .reviews {
+    padding: 7rem 0 8rem;
+  }
+
+  .reviews h2 {
+    font-size: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .review-carousel {
+    gap: 3rem;
+  }
+
+  .review-track {
+    gap: 2rem;
+    width: 900px;
+    padding: 2rem 300px;
+    min-height: 500px;
+  }
+
+  .review-slide {
+    flex: 0 0 460px;
+    transform: scale(0.7) translateY(-160px);
+  }
+
+  .review-slide.active {
+    flex-basis: 460px;
+    transform: scale(1) translateY(0);
+  }
+
+  .carousel-btn {
+    font-size: 5rem;
+  }
+
+  .dots span {
+    width: 14px;
+    height: 14px;
+  }
+
+  .dots span.active {
+    width: 28px;
+    height: 28px;
+  }
 }
 </style>
 
