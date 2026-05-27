@@ -13,14 +13,14 @@ const eksamen2 = data[1];
   <div class="kurv-vare">
     <button class="fjern-vare">×</button>
 
-<img src={`/img/${eksamen1.billede2}`} alt={eksamen1.produktnavn}>
+<img src={`/img/${eksamen1.billede1}`} alt={eksamen1.produktnavn}>
 
     <div class="vare-info">
-      <h2>Florence øreringe</h2>
+      <h2>{eksamen1.produktnavn}</h2>
 
-      <p>299,95 kr</p>
+      <p>{eksamen1.pris}</p>
 
-      <p>Farve: Sølv</p>
+      <p>{eksamen1.farve}</p>
 
       <p>Størrelse: One size</p>
 
@@ -36,14 +36,14 @@ const eksamen2 = data[1];
     <button class="fjern-vare">×</button>
 
 
-<img src={`/img/${eksamen2.billede2}`} alt={eksamen2.produktnavn}>
+<img src={`/img/${eksamen2.billede1}`} alt={eksamen2.produktnavn}>
 
     <div class="vare-info">
-      <h2>Florence øreringe</h2>
+      <h2>{eksamen2.produktnavn}</h2>
 
-      <p>299,95 kr</p>
+      <p>{eksamen2.pris}</p>
 
-      <p>Farve: Guld</p>
+      <p>{eksamen2.farve}</p>
 
       <p>Størrelse: One size</p>
 
@@ -103,7 +103,6 @@ const eksamen2 = data[1];
 
   font-size: 1.8rem;
   font-weight: 100;
-  cursor: pointer;
 
   padding: 0;
   line-height: 1;
@@ -151,11 +150,6 @@ const eksamen2 = data[1];
   display: grid;
   place-items: center;
 }
-
-.antal button {
-  cursor: pointer;
-}
-
 
 @media (min-width: 768px) {
   .kurv-items h1 {

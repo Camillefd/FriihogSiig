@@ -1,7 +1,6 @@
 ---
 import Layout from "../layout/layout.astro";
-import Footer from "../components/footer.astro";
-import SearchBar from "../components/searchBar.astro";
+import Knap from "../components/buttons.astro"
 ---
 
 
@@ -41,7 +40,9 @@ For FRIIHOF+SIIG er det væsentligt, at deres smykker ikke bliver til mængdevar
 
       <form class="store-search">
         <input type="text" placeholder="Din lokation (postnummer)" />
-        <button>Søg</button>
+        <div class="button">
+        <Knap tekst="Søg" href="" type="beige" />
+    </div>
       </form>
 
       <div class="store-list">
@@ -64,7 +65,9 @@ For FRIIHOF+SIIG er det væsentligt, at deres smykker ikke bliver til mængdevar
         </article>
       </div>
 
-      <button class="see-more">Se flere</button>
+     <div class="button2">
+        <Knap tekst="Se mere" href="" type="beige" />
+    </div>
     </section>
 
 <section class="reviews">
@@ -118,8 +121,12 @@ For FRIIHOF+SIIG er det væsentligt, at deres smykker ikke bliver til mængdevar
 
 .hero-image img {
   width: 100%;
-  display: block;
+  height: 600px;
+
   object-fit: cover;
+object-position: center 75%;
+
+  display: block;
 }
 
 .vores-historie {
@@ -189,16 +196,11 @@ For FRIIHOF+SIIG er det væsentligt, at deres smykker ikke bliver til mængdevar
   font-size: medium;
 }
 
-.store-search button,
-.see-more {
-  background-color: #f8ead3;
-  color: #1b0f4f;
+.store-search .button,
+.button2 {
   border: none;
   border-radius: 6px;
   padding: 0.8rem 2rem;
-  font-family: inherit;
-  font-size: large;
-  cursor: pointer;
 }
 
 .store-list {
@@ -222,7 +224,7 @@ For FRIIHOF+SIIG er det væsentligt, at deres smykker ikke bliver til mængdevar
   color: #f3e3c8;
 }
 
-.see-more {
+.button2 {
   margin-top: 2rem;
 }
 
@@ -258,6 +260,7 @@ For FRIIHOF+SIIG er det væsentligt, at deres smykker ikke bliver til mængdevar
   scrollbar-width: none;
   padding: 1rem;
   min-height: 330px;
+  justify-content: center;
 }
 
 .review-track::-webkit-scrollbar {
@@ -319,7 +322,6 @@ For FRIIHOF+SIIG er det væsentligt, at deres smykker ikke bliver til mængdevar
   opacity: 1;
 }
 
-/* DESKTOP */
 @media (min-width: 900px) {
   .vores-historie {
     padding: 6rem 5rem;
@@ -390,7 +392,7 @@ For FRIIHOF+SIIG er det væsentligt, at deres smykker ikke bliver til mængdevar
   .review-track {
     gap: 2rem;
     width: 900px;
-    padding: 2rem 300px;
+    padding: 2rem 220px;
     min-height: 500px;
   }
 
@@ -421,22 +423,14 @@ For FRIIHOF+SIIG er det væsentligt, at deres smykker ikke bliver til mængdevar
 </style>
 
 <script is:inline>
-    if ("scrollRestoration" in history) {
-  history.scrollRestoration = "manual";
-}
-
-window.addEventListener("load", () => {
-  window.scrollTo(0, 0);
-});
-  const track = document.querySelector(".review-track");
   const slides = document.querySelectorAll(".review-slide");
   const dots = document.querySelectorAll(".dots span");
   const prevBtn = document.querySelector(".carousel-btn.prev");
   const nextBtn = document.querySelector(".carousel-btn.next");
 
-  let currentIndex = 1;
+  let currentIndex = 2;
 
-  function updateCarousel() {
+  function updateCarousel(shouldScroll = false) {
     slides.forEach((slide, index) => {
       slide.classList.toggle("active", index === currentIndex);
     });
@@ -445,22 +439,24 @@ window.addEventListener("load", () => {
       dot.classList.toggle("active", index === currentIndex);
     });
 
-    slides[currentIndex].scrollIntoView({
-      behavior: "smooth",
-      inline: "center",
-      block: "nearest"
-    });
+    if (shouldScroll) {
+      slides[currentIndex].scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest"
+      });
+    }
   }
 
   nextBtn.addEventListener("click", () => {
     currentIndex = (currentIndex + 1) % slides.length;
-    updateCarousel();
+    updateCarousel(true);
   });
 
   prevBtn.addEventListener("click", () => {
     currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateCarousel();
+    updateCarousel(true);
   });
 
-  updateCarousel();
+  updateCarousel(false);
 </script>
