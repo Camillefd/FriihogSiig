@@ -1,7 +1,13 @@
+---
+import Knap from "./buttons.astro"
+---
+
 <section class="search-section" id="searchSection">
   <form class="search-form">
     <input type="search" placeholder="Søg efter..." />
-    <button type="submit">Søg</button>
+    <div class="button">
+        <Knap tekst="Søg" href="" type="rod" />
+    </div>
   </form>
 </section>
 
@@ -23,18 +29,18 @@ position: relative;
 
 .search-form {
   display: flex;
-  gap: 3rem;
-  align-items: center;
+  gap: 1rem;
+  align-items: stretch;
 }
 
 .search-form input {
-  flex: 1;
-  padding: 0.5rem 2rem;
+  width: 100%;
+  padding: 0.8rem 1.2rem;
   border: none;
   border-radius: 8px;
   background-color: #cdb4a3;
   color: #7b3f3f;
-  font-size: 2rem;
+  font-size: 1rem;
   font-family: inherit;
 }
 
@@ -42,21 +48,16 @@ position: relative;
   color: #7b3f3f;
 }
 
-.search-form button {
-  padding: 0.5rem 3.5rem;
+.search-form .button {
+  width: 100%;
+  padding: 0.8rem 1.5rem;
   border: none;
   border-radius: 8px;
-  background-color: #7b3f3f;
-  color: #f8ead3;
-  font-size: 2rem;
-  font-family: inherit;
-  cursor: pointer;
 }
 
 .search-icon {
   background: none;
   border: none;
-  cursor: pointer;
   padding: 0;
 }
 
@@ -66,6 +67,34 @@ position: relative;
   display: block;
 }
 
+@media (min-width: 900px) {
+  .search-section {
+    padding: 0 5rem;
+  }
+
+  .search-section.open {
+    max-height: 180px;
+    padding: 6rem 5rem 1.5rem;
+  }
+
+  .search-form {
+    flex-direction: row;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .search-form input {
+    flex: 1;
+    width: auto;
+    padding: 0.5rem 2rem;
+    font-size: 2rem;
+  }
+
+  .search-form .button {
+    width: auto;
+    padding: 0.5rem 3.5rem;
+  }
+}
 </style>
 
 <script is:inline>

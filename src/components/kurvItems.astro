@@ -13,7 +13,7 @@ const eksamen2 = data[1];
   <div class="kurv-vare">
     <button class="fjern-vare">×</button>
 
- <img src={`/img/${eksamen1.billede1}`} alt={eksamen1.produktnavn}>
+<img src={`/img/${eksamen1.billede1}`} alt={eksamen1.produktnavn}>
 
     <div class="vare-info">
       <h2>{eksamen1.produktnavn}</h2>
@@ -34,6 +34,7 @@ const eksamen2 = data[1];
 
   <div class="kurv-vare">
     <button class="fjern-vare">×</button>
+
 
 <img src={`/img/${eksamen2.billede1}`} alt={eksamen2.produktnavn}>
 
@@ -56,38 +57,38 @@ const eksamen2 = data[1];
 </section>
 
 <style>
-  .kurv-items {
-    width: 100%;
-  }
+.kurv-items {
+  width: 100%;
+}
 
-  .kurv-items h1 {
-    font-size: 4rem;
-    font-weight: 400;
-    margin-bottom: 2rem;
-  }
+.kurv-items h1 {
+  font-size: 2.8rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
 
-  .gratis-gave {
-    font-size: 1rem;
-    margin-bottom: 5rem;
-  }
+.gratis-gave {
+  font-size: 1rem;
+  margin-bottom: 3rem;
+}
 
-  .kurv-vare {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 3rem;
-    padding: 3rem 0;
-    border-top: 1px solid #8b5e5e;
-    position: relative;
-  }
+.kurv-vare {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 3rem 0;
+  border-top: 1px solid #8b5e5e;
+  position: relative;
+}
 
-  .kurv-vare:last-child {
-    border-bottom: 1px solid #8b5e5e;
-  }
+.kurv-vare:last-child {
+  border-bottom: 1px solid #8b5e5e;
+}
 
 .fjern-vare {
   position: absolute;
-  top: 1.5rem;
-  right: 1rem;
+  top: 1rem;
+  right: 0;
 
   width: 32px;
   height: 32px;
@@ -98,60 +99,90 @@ const eksamen2 = data[1];
 
   border: none;
   background: transparent;
-
   color: #7b3f3f;
+
   font-size: 1.8rem;
   font-weight: 100;
-
-  cursor: pointer;
 
   padding: 0;
   line-height: 1;
 }
 
+.kurv-vare img {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  object-fit: contain;
+  background: #fff;
+}
+
+.vare-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  justify-content: center;
+}
+
+.vare-info h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.vare-info p {
+  font-size: 1rem;
+}
+
+.antal {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.antal button,
+.antal span {
+  width: 48px;
+  height: 48px;
+  border: 1px solid #8b5e5e;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  display: grid;
+  place-items: center;
+}
+
+@media (min-width: 768px) {
+  .kurv-items h1 {
+    font-size: 4rem;
+  }
+
+  .gratis-gave {
+    margin-bottom: 5rem;
+  }
+
+  .kurv-vare {
+    grid-template-columns: 260px 1fr;
+    gap: 3rem;
+  }
+
   .kurv-vare img {
     width: 260px;
     height: 260px;
-    object-fit: contain;
-    background: #fff;
   }
 
   .vare-info {
-    display: flex;
-    flex-direction: column;
     gap: 1.4rem;
-    justify-content: center;
   }
 
   .vare-info h2 {
     font-size: 1.8rem;
-    font-weight: 400;
-  }
-
-  .vare-info p {
-    font-size: 1rem;
-  }
-
-  .antal {
-    display: flex;
-    gap: 0.8rem;
-    align-items: center;
-    margin-top: 1rem;
   }
 
   .antal button,
   .antal span {
     width: 58px;
     height: 58px;
-    border: 1px solid #8b5e5e;
-    background: transparent;
-    border-radius: 8px;
     font-size: 1.2rem;
-    display: grid;
-    place-items: center;
   }
-
-  .antal button {
-    cursor: pointer;
-  }
+}
 </style>

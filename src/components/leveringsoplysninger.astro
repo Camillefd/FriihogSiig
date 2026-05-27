@@ -1,3 +1,7 @@
+---
+import Knap from "./buttons.astro"
+---
+
 <section class="delivery-info">
   <h1>Leveringsoplysninger</h1>
 
@@ -30,11 +34,6 @@
     </div>
 
     <label>
-      Land *
-      <input type="text" name="country" />
-    </label>
-
-    <label>
       Telefonnummer *
       <input type="tel" name="phone" />
     </label>
@@ -52,97 +51,90 @@
       </span>
     </label>
 
-    <button type="submit">Fortsæt til leveringsmetode</button>
+<div class="button">
+ <Knap tekst="Fortsæt til leveringsmetode" href="" type="rod" />
+</div>
   </form>
 </section>
 
 <style>
-  .delivery-info {
-    margin-top: 4rem;
-    padding-bottom: 8rem;
-  }
+.delivery-info {
+  margin-top: 4rem;
+  padding-bottom: 8rem;
+}
 
+.delivery-info h1 {
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-bottom: 3rem;
+}
+
+.delivery-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.delivery-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+}
+
+.delivery-form input {
+  height: 38px;
+  border: none;
+  border-radius: 6px;
+  background-color: #d0b19d;
+  padding: 0 1rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.newsletter {
+  display: flex;
+  flex-direction: row !important;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.newsletter input {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #8b5e5e;
+  border-radius: 4px;
+  background-color: #d0b19d;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.button {
+  width: 100%;
+  margin-top: 3rem;
+  padding: 0.8rem 3rem;
+  border: none;
+  border-radius: 6px;
+}
+
+@media (min-width: 768px) {
   .delivery-info h1 {
     font-size: 3rem;
-    font-weight: 400;
-    margin-bottom: 3rem;
-  }
-
-  .delivery-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .delivery-form label {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    font-size: 0.8rem;
-  }
-
-  .delivery-form input {
-    height: 38px;
-    border: none;
-    border-radius: 6px;
-    background-color: #d0b19d;
-    padding: 0 1rem;
   }
 
   .form-row {
-    display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
   }
 
-.newsletter input {
-  appearance: none;
-
-  width: 24px;
-  height: 24px;
-
-  border: 1px solid #8b5e5e;
-  border-radius: 4px;
-
-background-color: #d0b19d;
-
-  padding: 0;
-  flex-shrink: 0;
-
-  cursor: pointer;
-}
-
-  .newsletter input {
-    width: 18px;
-    height: 18px;
-    padding: 0;
-    flex-shrink: 0;
-  }
-
-  button {
+  .button {
+    width: auto;
     align-self: center;
-    margin-top: 3rem;
-    padding: 0.8rem 3rem;
-    border: none;
-    border-radius: 6px;
-    background-color: #743b3b;
-    color: #f5e6c8;
-    font-size: 1.1rem;
-    cursor: pointer;
   }
-
-  @media (max-width: 768px) {
-    .delivery-info h1 {
-      font-size: 2.2rem;
-    }
-
-    .form-row {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    button {
-      width: 100%;
-    }
-  }
+}
 </style>
