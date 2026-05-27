@@ -3,13 +3,17 @@
 
   <div class="ordre-linje"></div>
 
-  <p>Subtotal (2 varer):</p>
-  <p>599,90 kr</p>
+  <div class="ordre-row">
+    <p>Subtotal (2 varer):</p>
+    <p>599,90 kr</p>
+  </div>
 
   <div class="ordre-linje"></div>
 
-  <p>Levering:</p>
-  <p>35 kr</p>
+  <div class="ordre-row">
+    <p>Levering:</p>
+    <p>35 kr</p>
+  </div>
 
   <div class="ordre-linje"></div>
 
@@ -17,34 +21,41 @@
 </section>
 
 <style>
+  .ordreoversigt {
+    padding-top: 0;
+    color: #7b3f3f;
+  }
+
+  .ordreoversigt h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+
+  .ordre-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .ordre-linje {
+    border-top: 1px solid #9a5a5a;
+    margin: 1.5rem 0;
+  }
+
+  .total {
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+
+  @media (min-width: 900px) {
     .ordreoversigt h2 {
-  font-size: 4rem;
-  font-weight: 400;
-  color: #7b3f3f;
-  margin-bottom: 2.5rem;
-}
+      font-size: 4rem;
+      margin-bottom: 2.5rem;
+    }
 
-.ordreoversigt {
-  padding-top: 0;
-}
-
-.ordre-linje {
-  border-top: 1px solid #9a5a5a;
-  margin: 1.8rem 0;
-}
-.cart-ordreoversigt {
-  padding-top: 5.5rem;
-}
-
-.cart-ordreoversigt h2 {
-  font-size: 4rem;
-  font-weight: 400;
-  margin-bottom: 2rem;
-}
-
-.cart-ordreoversigt hr {
-  border: none;
-  border-top: 1px solid #b78f8f;
-  margin: 2rem 0;
-}
+    .ordre-linje {
+      margin: 1.8rem 0;
+    }
+  }
 </style>
